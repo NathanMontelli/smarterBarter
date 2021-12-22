@@ -11467,10 +11467,30 @@ h1, h2, h3, h4, h5,
   padding-bottom: 0;
 }
 
-.heading-section {
+/* .heading-section {
   font-size: 28px;
   color: #fff;
+} */
+
+.heading-section {
+  font-size: 2rem;
+  font-weight: bold;
+  animation: light 1.5s ease-in-out infinite alternate;
+  -webkit-animation: light 1.5s ease-in-out infinite alternate;
 }
+
+@keyframes light {
+  from {
+    color: #fff;
+    text-shadow: 0 0 10px #00fff2, 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 90px #00fff2;
+  }
+
+  to {
+    color: lightgrey;
+    text-shadow: 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 80px #00fff2, 0 1 90px #00fff2;
+  }
+}
+
 
 .img {
   background-size: cover;
