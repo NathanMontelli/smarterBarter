@@ -11473,7 +11473,7 @@ h1, h2, h3, h4, h5,
 } */
 
 .heading-section {
-  font-size: 2rem;
+  font-size: 5rem;
   font-weight: bold;
   animation: light 1.5s ease-in-out infinite alternate;
   -webkit-animation: light 1.5s ease-in-out infinite alternate;
@@ -11481,13 +11481,13 @@ h1, h2, h3, h4, h5,
 
 @keyframes light {
   from {
-    color: #fff;
-    text-shadow: 0 0 10px #00fff2, 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 90px #00fff2;
+    color: #000000;
+    text-shadow: 0 0 10px #F5A6E6, 0 0 20px #F5A6E6, 0 0 30px #F5A6E6, 0 0 40px #F5A6E6, 0 0 50px #F5A6E6, 0 0 60px #F5A6E6, 0 0 70px #F5A6E6, 0 0 90px #F5A6E6;
   }
 
   to {
     color: lightgrey;
-    text-shadow: 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 80px #00fff2, 0 1 90px #00fff2;
+    text-shadow: 0 0 20px #F5A6E6, 0 0 30px #F5A6E6, 0 0 40px #F5A6E6, 0 0 50px #F5A6E6, 0 0 60px #F5A6E6, 0 0 70px #F5A6E6, 0 0 80px #F5A6E6, 0 1 90px #F5A6E6;
   }
 }
 
