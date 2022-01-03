@@ -30,11 +30,11 @@
           <div class="login-wrap p-0">
             <form action="#" class="signin-form">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Username" required>
+                <input id="rUsername" type="text" class="form-control" placeholder="Username" required>
               </div>
             <form action="#" class="signin-form">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Email" required>
+                <input id="rEmail" type="text" class="form-control" placeholder="Email" required>
               </div> 
               <div class="form-group">
                 <input id="password-field" type="password" class="form-control" placeholder="Password" required>
@@ -75,7 +75,7 @@
       const isCreated = await registerUser({
         username: document.getElementById('rUsername').value,
         email: document.getElementById('rEmail').value,
-        password: document.getElementById('rPassword').value
+        password: document.getElementById('password-field').value
       })
     })
 
