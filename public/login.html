@@ -64,7 +64,28 @@
 
   <script src="../js/main.js"></script>
 
-  
+  <script>
+
+      function loginUser() {
+        let oldUser = {
+          username: document.getElementById('lUsername').value,
+          password: document.getElementById('lPassword').value
+        }
+        axios.post('/api/users/login', oldUser)
+          .then(res => {
+            console.log(res)
+            localStorage.setItem('token', res.data.token)
+            location = '/'
+
+          })
+      }
+
+      document.getElementById('login').addEventListener('click', event => {
+        event.preventDefault()
+        loginUser()
+      })
+
+  </script>
 </body>
 
 </html>
