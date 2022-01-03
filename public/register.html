@@ -5,13 +5,9 @@
   <title>Login 10</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
   <link rel="stylesheet" href="./css/login.css">
-
 </head>
 
 <body class="img js-fullheight"
@@ -41,16 +37,10 @@
                 <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
               </div>
               <div class="form-group">
-                <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+                <button type="submit" class="form-control btn btn-primary submit px-3">Register Account</button>
               </div>
-              <div class="social d-flex text-center">
-                <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Register </a>
-                <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Forgot
-                  Password</a>
-              </div>
-              <br>
             </form>
-            <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+            <p class="w-100 text-center">&mdash; Or Register With &mdash;</p>
             <div class="social d-flex text-center">
               <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
               <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>
@@ -64,60 +54,6 @@
   <script src="../js/jquery.min.js"></script>
   <script src="../js/main.js"></script>
 
-  <script>
-
-    async function registerUser(user) {
-      try {
-        await axios.post('/api/users/register', user)
-        return true
-
-      } catch (err) {
-        alert('Invalid Info Provided. Please Try Again.')
-      }
-    }
-
-    async function loginUser(user) {
-      try {
-        const { data } = await axios.post('/api/users/login', user)
-        return data
-
-      } catch (err) {
-        alert('Something Went Wrong. Please Try Again.')
-      }
-    }
-
-    document.getElementById('register').addEventListener('click', async function (event) {
-      event.preventDefault()
-
-      const isCreated = await registerUser({
-        username: document.getElementById('rUsername').value,
-        email: document.getElementById('rEmail').value,
-        password: document.getElementById('rPassword').value
-      })
-
-      if (isCreated) {
-        alert('Account Created! Please Login.')
-      }
-    })
-
-    document.getElementById('login').addEventListener('click', async function (event) {
-      event.preventDefault()
-
-      const { username, token } = await loginUser({
-        username: document.getElementById('lUsername').value,
-        password: document.getElementById('lPassword').value
-      })
-
-      if (token) {
-        localStorage.setItem('username', username)
-        localStorage.setItem('token', token)
-        location = '/'
-      } else {
-        alert('Invalid Username Or Password. Please Try Again.')
-      }
-    })
-
-  </script>
 </body>
 
 </html>
