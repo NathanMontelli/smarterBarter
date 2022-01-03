@@ -54,6 +54,29 @@
   <script src="../js/jquery.min.js"></script>
   <script src="../js/main.js"></script>
 
+  <script>
+
+    async function registerUser(user) {
+      try {
+        await axios.post('/api/users/register', user)
+        return true
+      } catch (err) {
+        alert('Invalid Info Provided. Please Try Again.')
+      }
+    }
+
+    document.getElementById('register').addEventListener('click', async function (event) {
+      event.preventDefault()
+
+      const isCreated = await registerUser({
+        username: document.getElementById('rUsername').value,
+        email: document.getElementById('rEmail').value,
+        password: document.getElementById('rPassword').value
+      })
+    })
+
+  </script>
+
 </body>
 
 </html>
