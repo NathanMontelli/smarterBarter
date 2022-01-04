@@ -150,8 +150,12 @@
           <input type="text" class="form-control" id="title">
         </div>
         <div class="mb-3">
-          <label for="body" class="form-label">Body</label>
-          <textarea class="form-control" name="body" id="body" cols="30" rows="10"></textarea>
+          <label for="title" class="form-label">Item Name</label>
+          <input type="text" class="form-control" id="itemName">
+        </div>
+        <div class="mb-3">
+          <label for="body" class="form-label">Desscription</label>
+          <textarea class="form-control" name="body" id="description" cols="30" rows="10"></textarea>
         </div>
         <button id="post" type="submit" class="btn btn-primary">Create Post</button>
         <input type="file" accept="image/*" onchange="loadFile(event)">
@@ -171,7 +175,8 @@
       function createPost() {
         let newPost = {
           title: document.getElementById('title').value,
-          body: document.getElementById('body').value
+          item_name: document.getElementById('itemName').value,
+          body: document.getElementById('description').value
         }
         axios.post('/api/items', newPost, {
           headers: {
@@ -196,15 +201,16 @@
         .then(res => {
 
           console.log(res.data)
-          let posts = res.data
-          posts.forEach(post => {
-            let postElem = document.createElement('div')
-            postElem.innerHTML = `
-            <h3 class="goToPost" data-postid="${post.id}"> ${post.title} </h3>
-            <h5> posted by ${post.User.username} at ${post.User.createdAt.slice(0, -14)} </h5>
-            <p> ${post.body} </p>
+          let items = res.data
+          items.forEach(item => {
+            let itemElem = document.createElement('div')
+            itemElem.innerHTML = `
+            <h3 class="goToPost" data-postid="${item.id}"> ${item.title} </h3>
+            <h3> ${item.item_name} </h3>
+            <h5> posted by ${item.User.username} at ${item.User.createdAt.slice(0, -14)} </h5>
+            <p> ${item.body} </p>
             `
-            document.getElementById('posts').prepend(postElem)
+            document.getElementById('posts').prepend(itemElem)
           })
 
         })
