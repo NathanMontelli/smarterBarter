@@ -548,6 +548,44 @@ a:hover {
 
 /* banner section end */
 
+/* item start */
+.item-name {
+ font-size: 25px;
+ font-weight: bold;
+}
+
+.item-price {
+ font-size: 25px;
+ font-weight: bold;
+}
+
+.item-condition {
+ font-size: 17px;
+}
+
+.description-title {
+ font-size: 25px;
+ font-weight: bold;
+}
+
+.item-description {
+ font-size: 17px;
+}
+/* item end */
+
+/* modal start */
+.modal-header {
+ align-self: center;
+}
+
+.modal-body {
+ align-self: center;
+}
+
+.modal-footer {
+ align-self: center;
+}
+/* modal end */
 
 
 /* footer section start */
