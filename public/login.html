@@ -14,13 +14,14 @@
 
 </head>
 
-<body class="img js-fullheight" style="background-image: url('https://cdn.sanity.io/images/hpvpbfax/production/da46c251b2ae7ad58b3b925353f37b20385b67b1-1200x900.gif');">
+<body class="img js-fullheight"
+  style="background-image: url('https://cdn.sanity.io/images/hpvpbfax/production/da46c251b2ae7ad58b3b925353f37b20385b67b1-1200x900.gif');">
 
-    <!-- <video autoplay muted loop id="myVideo">
+  <!-- <video autoplay muted loop id="myVideo">
       <source src="../images/Atlias.mp4" type="video/mp4">
     </video> -->
 
-<br><br><br>
+  <br><br><br>
   <section class="ftco-section">
     <div class="container">
       <div class="row justify-content-center">
@@ -33,20 +34,21 @@
           <div class="login-wrap p-0">
             <form action="#" class="signin-form">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Username" required>
+                <input id="lUsername" type="text" class="form-control" placeholder="Username" required>
               </div>
               <div class="form-group">
                 <input id="password-field" type="password" class="form-control" placeholder="Password" required>
                 <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
               </div>
               <div class="form-group">
-                <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+                <button id="login" type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
               </div>
-            <div class="social d-flex text-center">
-              <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Register </a>
-              <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Forgot Password</a>
-            </div>
-            <br>
+              <div class="social d-flex text-center">
+                <a href="/register.html" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Register </a>
+                <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Forgot
+                  Password</a>
+              </div>
+              <br>
             </form>
             <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
             <div class="social d-flex text-center">
@@ -58,13 +60,49 @@
       </div>
     </div>
   </section>
-
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="../js/jquery.min.js"></script>
-
-
   <script src="../js/main.js"></script>
+  <script>
 
-  
+    async function registerUser(user) {
+      try {
+        await axios.post('/api/users/register', user)
+        return true
+
+      } catch (err) {
+        alert('Invalid Info Provided. Please Try Again.')
+      }
+    }
+
+    async function loginUser(user) {
+      try {
+        const { data } = await axios.post('/api/users/login', user)
+        return data
+
+      } catch (err) {
+        alert('Something Went Wrong. Please Try Again.')
+      }
+    }
+
+    document.getElementById('login').addEventListener('click', async function (event) {
+      event.preventDefault()
+
+      const { username, token } = await loginUser({
+        username: document.getElementById('lUsername').value,
+        password: document.getElementById('password-field').value
+      })
+
+      if (token) {
+        localStorage.setItem('username', username)
+        localStorage.setItem('token', token)
+        location = '/'
+      } else {
+        alert('Invalid Username Or Password. Please Try Again.')
+      }
+    })
+
+  </script>
 </body>
 
 </html>

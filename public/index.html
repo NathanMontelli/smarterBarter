@@ -75,13 +75,17 @@
           <div class="header_box">
             <div class="login_menu">
               <ul>
-                <li><a href="#">
+                <li><a href="/itemPost.html">
                     <i class="fas fa-camera"></i>
                     <span class="padding_10">Post</span></a>
                 </li>
-                <li><a href="#">
+                <li><a href="/itemPost.html">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <span class="padding_10">Profile</span></a>
+                </li>
+                <li><a href="#">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span id="logout" class="padding_10">Logout</span></a>
                 </li>
               </ul>
             </div>
@@ -585,6 +589,17 @@
     function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
     }
+
+    async function logoutUser() {
+        localStorage.removeItem('username')
+        localStorage.removeItem('token')
+        location = '/login.html'
+      }
+
+    document.getElementById("logout").addEventListener('click', event => {
+        event.preventDefault()
+        logoutUser()
+      })  
   </script>
 </body>
 

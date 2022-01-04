@@ -1,12 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
+  <!-- basic -->
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- mobile metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <!-- site metas -->
+  <title>Smarter Barter</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- bootstrap css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <!-- style css -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- Responsive-->
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- fevicon -->
+  <link rel="icon" href="images/fevicon.png" type="image/gif" />
+  <!-- Scrollbar Custom CSS -->
+  <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+  <!-- Tweaks for older IEs-->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+  <!-- font awesome -->
+  <link rel="stylesheet" type="text/css"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--  -->
+  <!-- owl stylesheets -->
+  <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:400,700&display=swap&subset=latin-ext"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesoeet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+    media="screen">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
 <body>
-  
+  <!-- banner bg main start -->
+  <div class="banner_bg_main">
+    <!-- header top section start -->
+    <!-- logo section start -->
+    <div class="logo_section">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="logo"><a href="index.html">Smarter Barter</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- logo section end -->
+    <!-- header section start -->
+    <div class="header_section">
+      <div class="container">
+        <div class="containt_main">
+          <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="index.html">Home</a>
+            <a href="fashion.html">Fashion</a>
+            <a href="electronic.html">Electronic</a>
+            <a href="jewelery.html">Jewelry</a>
+          </div>
+          <span class="toggle_icon" onclick="openNav()"><img src="images/toggle-icon.png"></span>
+          <div class="main">
+            <!-- Another variation with a button -->
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search Item">
+              <div class="input-group-append">
+                <button class="btn btn-secondary" type="button" style="background-color: #f26522; border-color:#f26522 ">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="header_box">
+            <div class="login_menu">
+              <ul>
+                <li><a href="/itemPost.html">
+                    <i class="fas fa-camera"></i>
+                    <span class="padding_10">Post</span></a>
+                </li>
+                <li><a href="#">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span class="padding_10">Profile</span></a>
+                </li>
+                <li><a href="#">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span id="logout" class="padding_10">Logout</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- header section end -->
+    <!-- banner section start -->
+    <div class="banner_section layout_padding">
+      <div class="container">
+        <div id="my_slider" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h1 class="banner_taital">Welcome to <br>Smarter Barter</h1>
+                  <div class="buynow_bt"><a href="#">Discover</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h1 class="banner_taital">Get Started With <br>Your First Post</h1>
+                  <div class="buynow_bt"><a href="#">Post</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h1 class="banner_taital">See What <br>Others Are Selling</h1>
+                  <div class="buynow_bt"><a href="#">Discover</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+          </a>
+          <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- banner section end -->
+  </div>
+    <div class="row">
+      <form>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="title">
+        </div>
+        <div class="mb-3">
+          <label for="body" class="form-label">Body</label>
+          <textarea class="form-control" name="body" id="body" cols="30" rows="10"></textarea>
+        </div>
+        <button id="post" type="submit" class="btn btn-primary">Create Post</button>
+        <input type="file" accept="image/*" onchange="loadFile(event)">
+        <img id="output" />
+      </form>
+    </div>
+
+    <div id="posts" class="row"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script>
+
+      function createPost() {
+        let newPost = {
+          title: document.getElementById('title').value,
+          body: document.getElementById('body').value
+        }
+        axios.post('/api/items', newPost, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        })
+          .then(res => {
+            console.log(res)
+          })
+      }
+
+      document.getElementById("post").addEventListener('click', event => {
+        event.preventDefault()
+        createPost()
+      })
+
+      axios.get('/api/items', {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+        .then(res => {
+
+          console.log(res.data)
+          let posts = res.data
+          posts.forEach(post => {
+            let postElem = document.createElement('div')
+            postElem.innerHTML = `
+            <h3 class="goToPost" data-postid="${post.id}"> ${post.title} </h3>
+            <h5> posted by ${post.User.username} at ${post.User.createdAt.slice(0, -14)} </h5>
+            <p> ${post.body} </p>
+            `
+            document.getElementById('posts').prepend(postElem)
+          })
+
+        })
+
+      document.addEventListener('click', event => {
+        if (event.target.classList.contains('goToPost')) {
+          console.log('ping')
+          localStorage.setItem('postId', event.target.dataset.postid)
+          location = '/post.html'
+        }
+      })
+
+        async function logoutUser() {
+          localStorage.removeItem('username')
+          localStorage.removeItem('token')
+          location = '/login.html'
+        }
+
+        document.getElementById("logout").addEventListener('click', event => {
+          event.preventDefault()
+          logoutUser()
+        })
+
+  var loadFile = function (event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function () {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+
+    </script>
 </body>
 </html>
