@@ -13,6 +13,11 @@ User.hasMany(Item, { foreignKey: 'uid' })
 //items belon to a user
 Item.belongsTo(User, { foreignKey: 'uid' })
 
+User.hasMany(Note, { foreignKey: 'uid' })
+//items belon to a user
+Note.belongsTo(User, { foreignKey: 'uid' })
+
+
 //Items cans have many comments
 Item.hasMany(Note, { foreignKey: 'iid' })
 //comments belong to an item(post)
