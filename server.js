@@ -4,8 +4,10 @@ const express = require('express')
 const { join } = require('path')
 
 const passport = require('passport')
-const { User, Post } = require('./models')
+const { User, Item, Category, Note } = require('./models') 
+//prevents being signed out on page load
 const { Strategy: JWTStrategy, ExtractJwt } = require('passport-jwt')
+const { FORCE } = require('sequelize/dist/lib/index-hints')
 
 const app = express()
 
@@ -26,7 +28,7 @@ passport.use(new JWTStrategy({
   secretOrKey: process.env.SECRET
 }, async function ({ id }, cb) {
   try {
-    const user = await User.findOne({ where: { id }, include: [Post] })
+    const user = await User.findOne({ where: { id }, include: [Item, Note] }) // add note??
     cb(null, user)
   } catch (err) {
     cb(err, null)

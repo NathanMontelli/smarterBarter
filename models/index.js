@@ -1,21 +1,30 @@
 const Category = require('./Category.js')
 const Item = require('./Item.js')
 const User = require('./User.js')
-const Post = require('./Post.js')
+const Note = require('./Note.js')
 
 //categories can have many items
-Category.hasMany(Item, { foreignKey: ' ' })  // Need to add foreign key!!!!!!!!!
+Category.hasMany(Item, { foreignKey: 'cid' })  
 //items belong to a category 
-Item.belongsTo(Category, { foreignKey: ' '}) // Need to add foreign key!!!!!!!!!
-//users can have many posts
-User.hasMany(Post, { foreignKey: ' ' })  // Need to add foreign key!!!!!!!!!
-//posts only belong to one user
-Post.belongsTo(User, { foreignKey: ' ' }) // Need to add foreign key!!!!!!!!!
+Item.belongsTo(Category, { foreignKey: 'cid'}) 
 
+//users can have many items
+User.hasMany(Item, { foreignKey: 'uid' })  
+//items belon to a user
+Item.belongsTo(User, { foreignKey: 'uid' })
+
+//Items cans have many comments
+Item.hasMany(Note, { foreignKey: 'iid' })
+//comments belong to an item(post)
+Note.belongsTo(Item, { foreignKey: 'iid' })
+
+User.hasMany(Note, { foreignKey: 'uid' })  
+
+Note.belongsTo(User, { foreignKey: 'uid' })
 
 module.exports = { 
   Category,
   User, 
-  Post,
-  Item
+  Item,
+  Note
 }
