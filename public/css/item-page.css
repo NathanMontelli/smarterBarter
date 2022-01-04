@@ -361,8 +361,9 @@ button {
  display: inline-block;
  margin-left: 30px;
  order: 2;
- font-size: large;
+ font-size: 35px;
  font-weight: bold;
+ padding-bottom: 50px;
 }
 
 .btn-secondary {
