@@ -21,7 +21,7 @@ router.post('/items', passport.authenticate('jwt'), async function (req, res) {
     title: req.body.title,
     body: req.body.body,
     cid: req.body.cid,
-    uid: user.id
+    uid: req.user.id
   })
   res.json()
 })
