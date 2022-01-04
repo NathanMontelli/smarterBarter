@@ -351,17 +351,14 @@ button {
     display: flex;
 }
 
-.dropdown,
-.dropleft,
-.dropright,
-.dropup {
+.dropdown {
     position: relative;
     margin: 0 auto;
     text-align: center;
     display: inline-block;
     margin-left: 30px;
     order: 2;
-    font-size: large;
+    font-size: x-large;
     font-weight: bold;
 }
 
