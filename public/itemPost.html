@@ -136,28 +136,69 @@
     </div>
     <!-- banner section end -->
   </div>
+
+  <!-- post section start -->
+  <div class="container">
   <div class="row">
     <form>
       <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
+        <label for="title" class="form-label">Title (required)</label>
         <input type="text" class="form-control" id="title">
       </div>
       <div class="mb-3">
-        <label for="title" class="form-label">Item Name</label>
+        <label for="title" class="form-label">Category (required)</label>
+        <div class="category-dropdown-menu">
+          <select id="status" name="status">
+            <option>Electronics & Media</option>
+            <option>Home & Garden</option>
+            <option>Clothing, Shoes, & Accessories</option>
+            <option>Baby & Kids</option>
+            <option>Vehicles</option>
+            <option>Toys, Games, & Hobbies</option>
+            <option>Sports & Outdoors</option>
+            <option>Collectibles & Art</option>
+            <option>Pet supplies</option>
+            <option>Health & Beauty</option>
+            <option>Wedding</option>
+            <option>Business equipment</option>
+            <option>Tickets</option>
+            <option>General</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Brand (optional)</label>
         <input type="text" class="form-control" id="itemName">
       </div>
       <div class="mb-3">
-        <label for="body" class="form-label">Desscription</label>
+        <label for="title" class="form-label">Condition (required)</label>
+        <div class="condition-dropdown-menu">
+        <select id="status" name="status">
+          <option>New</option>
+          <option>Reconditioned/Certified</option>
+          <option>Open box (never used)</option>
+          <option>Used (normal wear)</option>
+          <option>For parts</option>
+          <option>Other (see description)</option>
+        </select>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="body" class="form-label">Description (optional)</label>
         <textarea class="form-control" name="body" id="description" cols="30" rows="10"></textarea>
       </div>
-      <button id="post" type="submit" class="btn btn-primary">Create Post</button>
+      <button id="post" type="submit" class="btn btn-dark">Create Post</button>
       <input type="file" accept="image/*" onchange="loadFile(event)">
-      <img id="output" />
+      <img id="output">
     </form>
+
+  </div>
   </div>
 
   <div id="posts" class="row"></div>
 
+  <!-- post section end -->
+  <br>
   <!-- footer section start -->
   <div class="footer_section layout_padding">
     <div class="container">
