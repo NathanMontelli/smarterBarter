@@ -4,7 +4,7 @@ const passport = require('passport')
 
 // GET all comments
 router.get('/notes', passport.authenticate('jwt'), async function (req, res) {
-  const notes = await Note.findAll({ include: [User, Post] })
+  const notes = await Note.findAll({ include: [User] })
   res.json(notes)
 })
 
@@ -12,7 +12,7 @@ router.get('/notes', passport.authenticate('jwt'), async function (req, res) {
 router.post('/notes', passport.authenticate('jwt'), async function (req, res) {
   const note = await Note.create({
     body: req.body.body,
-    pid: req.body.pid,
+    iid: req.body.iid,
     uid: req.user.id
   })
   res.json(note)
