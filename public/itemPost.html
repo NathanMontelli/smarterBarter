@@ -40,23 +40,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
     media="screen">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    </head>
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
 <body>
   <!-- banner bg main start -->
   <div class="banner_bg_main">
-    <!-- header top section start -->
-    <!-- logo section start -->
-    <div class="logo_section">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="logo"><a href="index.html">Smarter Barter</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- logo section end -->
     <!-- header section start -->
     <div class="header_section">
       <div class="container">
@@ -69,12 +58,16 @@
             <a href="jewelery.html">Jewelry</a>
           </div>
           <span class="toggle_icon" onclick="openNav()"><img src="images/toggle-icon.png"></span>
+          <div class="dropdown">
+            SmarterBarter
+          </div>
           <div class="main">
             <!-- Another variation with a button -->
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search Item">
               <div class="input-group-append">
-                <button class="btn btn-secondary" type="button" style="background-color: #f26522; border-color:#f26522 ">
+                <button class="btn btn-secondary" type="button"
+                  style="background-color: #f26522; border-color:#f26522 ">
                   <i class="fa fa-search"></i>
                 </button>
               </div>
@@ -143,105 +136,141 @@
     </div>
     <!-- banner section end -->
   </div>
-    <div class="row">
-      <form>
-        <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
-          <input type="text" class="form-control" id="title">
-        </div>
-        <div class="mb-3">
-          <label for="title" class="form-label">Item Name</label>
-          <input type="text" class="form-control" id="itemName">
-        </div>
-        <div class="mb-3">
-          <label for="body" class="form-label">Desscription</label>
-          <textarea class="form-control" name="body" id="description" cols="30" rows="10"></textarea>
-        </div>
-        <button id="post" type="submit" class="btn btn-primary">Create Post</button>
-        <input type="file" accept="image/*" onchange="loadFile(event)">
-        <img id="output" />
-      </form>
+  <div class="row">
+    <form>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title">
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Item Name</label>
+        <input type="text" class="form-control" id="itemName">
+      </div>
+      <div class="mb-3">
+        <label for="body" class="form-label">Desscription</label>
+        <textarea class="form-control" name="body" id="description" cols="30" rows="10"></textarea>
+      </div>
+      <button id="post" type="submit" class="btn btn-primary">Create Post</button>
+      <input type="file" accept="image/*" onchange="loadFile(event)">
+      <img id="output" />
+    </form>
+  </div>
+
+  <div id="posts" class="row"></div>
+
+  <!-- footer section start -->
+  <div class="footer_section layout_padding">
+    <div class="container">
+      <div class="location_main">Contributors: Alan | Harrison | Nathan | Oliver | Timmay</div>
     </div>
+  </div>
+  <!-- footer section end -->
+  <!-- copyright section start -->
+  <div class="copyright_section">
+    <div class="container">
+      <p class="copyright_text">© 2022 SmarterBarter Inc.</p>
+    </div>
+  </div>
+  <!-- copyright section end -->
 
-    <div id="posts" class="row"></div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script>
 
-    <script>
-
-      function createPost() {
-        let newPost = {
-          title: document.getElementById('title').value,
-          item_name: document.getElementById('itemName').value,
-          body: document.getElementById('description').value
-        }
-        axios.post('/api/items', newPost, {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
-        })
-          .then(res => {
-            console.log(res)
-          })
+    function createPost() {
+      let newPost = {
+        title: document.getElementById('title').value,
+        item_name: document.getElementById('itemName').value,
+        body: document.getElementById('description').value
       }
-
-      document.getElementById("post").addEventListener('click', event => {
-        event.preventDefault()
-        createPost()
-      })
-
-      axios.get('/api/items', {
+      axios.post('/api/items', newPost, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
       })
         .then(res => {
+          console.log(res)
+        })
+    }
 
-          console.log(res.data)
-          let items = res.data
-          items.forEach(item => {
-            let itemElem = document.createElement('div')
-            itemElem.innerHTML = `
+    document.getElementById("post").addEventListener('click', event => {
+      event.preventDefault()
+      createPost()
+    })
+
+    axios.get('/api/items', {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+      .then(res => {
+
+        console.log(res.data)
+        let items = res.data
+        items.forEach(item => {
+          let itemElem = document.createElement('div')
+          itemElem.innerHTML = `
             <h3 class="goToPost" data-postid="${item.id}"> ${item.title} </h3>
             <h3> ${item.item_name} </h3>
             <h5> posted by ${item.User.username} at ${item.User.createdAt.slice(0, -14)} </h5>
             <p> ${item.body} </p>
             `
-            document.getElementById('posts').prepend(itemElem)
-          })
-
+          document.getElementById('posts').prepend(itemElem)
         })
 
-      document.addEventListener('click', event => {
-        if (event.target.classList.contains('goToPost')) {
-          console.log('ping')
-          localStorage.setItem('postId', event.target.dataset.postid)
-          location = '/post.html'
-        }
       })
 
-        async function logoutUser() {
-          localStorage.removeItem('username')
-          localStorage.removeItem('token')
-          location = '/login.html'
-        }
+    document.addEventListener('click', event => {
+      if (event.target.classList.contains('goToPost')) {
+        console.log('ping')
+        localStorage.setItem('postId', event.target.dataset.postid)
+        location = '/post.html'
+      }
+    })
 
-        document.getElementById("logout").addEventListener('click', event => {
-          event.preventDefault()
-          logoutUser()
-        })
-
-  var loadFile = function (event) {
-    var output = document.getElementById('output');
-    output.src = URL.createObjectURL(event.target.files[0]);
-    output.onload = function () {
-      URL.revokeObjectURL(output.src) // free memory
+    async function logoutUser() {
+      localStorage.removeItem('username')
+      localStorage.removeItem('token')
+      location = '/login.html'
     }
-  };
 
-    </script>
+    document.getElementById("logout").addEventListener('click', event => {
+      event.preventDefault()
+      logoutUser()
+    })
+
+    var loadFile = function (event) {
+      var output = document.getElementById('output');
+      output.src = URL.createObjectURL(event.target.files[0]);
+      output.onload = function () {
+        URL.revokeObjectURL(output.src) // free memory
+      }
+    };
+
+  </script>
+
+  <!-- Javascript files-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery-3.0.0.min.js"></script>
+  <script src="js/plugin.js"></script>
+  <!-- sidebar -->
+  <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
 </body>
+
 </html>
