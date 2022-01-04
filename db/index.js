@@ -1,3 +1,3 @@
 const { Sequelize } = require('sequelize')
 
-module.exports = new Sequelize('mysql://root:Abc123!!@localhost:3306/smarterBarter_db')
+module.exports = new Sequelize('mysql://root:rootroot@localhost:3306/smarterBarter_db')
