@@ -34,7 +34,7 @@
           <div class="login-wrap p-0">
             <form action="#" class="signin-form">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Username" required>
+                <input id="lUsername" type="text" class="form-control" placeholder="Username" required>
               </div>
               <div class="form-group">
                 <input id="password-field" type="password" class="form-control" placeholder="Password" required>
@@ -90,7 +90,7 @@
 
       const { username, token } = await loginUser({
         username: document.getElementById('lUsername').value,
-        password: document.getElementById('lPassword').value
+        password: document.getElementById('password-field').value
       })
 
       if (token) {
