@@ -612,6 +612,17 @@
     function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
     }
+
+    async function logoutUser() {
+        localStorage.removeItem('username')
+        localStorage.removeItem('token')
+        location = '/login.html'
+      }
+
+    document.getElementById("logout").addEventListener('click', event => {
+        event.preventDefault()
+        logoutUser()
+      })  
   </script>
 </body>
 

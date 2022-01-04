@@ -216,15 +216,16 @@
         }
       })
 
-      async function logoutUser() {
-        localStorage.removeItem('token')
-        location = '/login.html'
-      }
+        async function logoutUser() {
+          localStorage.removeItem('username')
+          localStorage.removeItem('token')
+          location = '/login.html'
+        }
 
-      document.getElementById("logout").addEventListener('click', event => {
-        event.preventDefault()
-        logoutUser()
-      })
+        document.getElementById("logout").addEventListener('click', event => {
+          event.preventDefault()
+          logoutUser()
+        })
 
   var loadFile = function (event) {
     var output = document.getElementById('output');

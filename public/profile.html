@@ -156,6 +156,11 @@
         location = '/login.html'
       }
 
+      document.getElementById("logout").addEventListener('click', event => {
+        event.preventDefault()
+        logoutUser()
+      })
+
       async function getProfile() {
         try {
           const { data: user } = await axios.get('/api/users/profile', {
