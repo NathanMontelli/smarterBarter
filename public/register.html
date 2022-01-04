@@ -41,7 +41,7 @@
                 <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
               </div>
               <div class="form-group">
-                <button type="submit" class="form-control btn btn-primary submit px-3">Register Account</button>
+                <button id="register" type="submit" class="form-control btn btn-primary submit px-3">Register Account</button>
               </div>
             </form>
             <p class="w-100 text-center">&mdash; Or Register With &mdash;</p>
@@ -54,31 +54,51 @@
       </div>
     </div>
   </section>
-
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="../js/jquery.min.js"></script>
   <script src="../js/main.js"></script>
 
   <script>
 
-    async function registerUser(user) {
-      try {
-        await axios.post('/api/users/register', user)
-        return true
-      } catch (err) {
-        alert('Invalid Info Provided. Please Try Again.')
+    // async function registerUser(user) {
+    //   try {
+    //     await axios.post('/api/users/register', user)
+    //     return true
+    //   } catch (err) {
+    //     alert('Invalid Info Provided. Please Try Again.')
+    //   }
+    // }
+
+    // document.getElementById('register').addEventListener('click', async function (event) {
+    //   event.preventDefault()
+
+    //   const isCreated = await registerUser({
+    //     username: document.getElementById('rUsername').value,
+    //     email: document.getElementById('rEmail').value,
+    //     password: document.getElementById('password-field').value
+    //   })
+    // })
+
+    function registerUser() {
+        let newUser = {
+          username: document.getElementById('rUsername').value,
+          email: document.getElementById('rEmail').value,
+          password: document.getElementById('password-field').value
+        }
+        axios.post('/api/users/register', newUser)
+          .then(res => {
+            console.log('user created')
+            document.getElementById('rUsername').value = ''
+            document.getElementById('rEmail').value = ''
+            document.getElementById('password-field').value = ''
+            location = '/login.html'
+          })
       }
-    }
 
-    document.getElementById('register').addEventListener('click', async function (event) {
-      event.preventDefault()
-
-      const isCreated = await registerUser({
-        username: document.getElementById('rUsername').value,
-        email: document.getElementById('rEmail').value,
-        password: document.getElementById('password-field').value
+      document.getElementById('register').addEventListener('click', event => {
+        event.preventDefault()
+        registerUser()
       })
-    })
-
   </script>
 
 </body>
