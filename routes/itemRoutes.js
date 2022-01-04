@@ -10,7 +10,7 @@ router.get('/items', passport.authenticate('jwt'), async function (req, res) {
 
 //get one item
 router.get('/items/:id', passport.authenticate('jwt'), async function (req, res) {
-  const item = await Item.findOne({ include: [User, Category, Note] })
+  const item = await Item.findOne({ where: {id: req.params.id }, include: [User, Category, Note] })
   res.json(item)
 })
 
