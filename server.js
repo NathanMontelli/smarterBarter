@@ -7,6 +7,7 @@ const passport = require('passport')
 const { User, Item, Category, Note } = require('./models') 
 //prevents being signed out on page load
 const { Strategy: JWTStrategy, ExtractJwt } = require('passport-jwt')
+const { FORCE } = require('sequelize/dist/lib/index-hints')
 
 const app = express()
 

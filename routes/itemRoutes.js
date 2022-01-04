@@ -9,8 +9,8 @@ router.get('/items', passport.authenticate('jwt'), async function (req, res) {
 })
 
 //get one item
-router.get('/items', passport.authenticate('jwt'), async function (req, res) {
-  const item = await Item.findOne({ include: [User, Category, Note] })
+router.get('/items/:id', passport.authenticate('jwt'), async function (req, res) {
+  const item = await Item.findOne({ where: { id: req.params.id } , include: [User, Category, Note] })
   res.json(item)
 })
 
@@ -27,8 +27,8 @@ router.post('/items', passport.authenticate('jwt'), async function (req, res) {
 })
 
 // DELETE one post
-router.delete('/items/:id', passport.authenticate('jwt'), async function ({ params: { id } }, res) {
-  await Item.destroy({ where: { id } })
+router.delete('/items/:id', passport.authenticate('jwt'), async function (req, res) {
+  await Item.destroy({ where: { id: req.params.id } })
   res.sendStatus(200)
 })
 
