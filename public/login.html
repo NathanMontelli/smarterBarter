@@ -86,20 +86,6 @@
       }
     }
 
-    document.getElementById('register').addEventListener('click', async function (event) {
-      event.preventDefault()
-
-      const isCreated = await registerUser({
-        username: document.getElementById('rUsername').value,
-        email: document.getElementById('rEmail').value,
-        password: document.getElementById('rPassword').value
-      })
-
-      if (isCreated) {
-        alert('Account Created! Please Login.')
-      }
-    })
-
     document.getElementById('login').addEventListener('click', async function (event) {
       event.preventDefault()
 
