@@ -100,7 +100,7 @@ h4 a,
 h5 a,
 h6 a {
     color: #212121;
-    text-decoration: none!important;
+    text-decoration: none !important;
     opacity: 1
 }
 
@@ -145,7 +145,7 @@ img {
     height: auto;
 }
 
- :focus {
+:focus {
     outline: 0;
 }
 
@@ -337,6 +337,7 @@ button {
     .sidenav {
         padding-top: 15px;
     }
+
     .sidenav a {
         font-size: 18px;
     }
@@ -363,7 +364,7 @@ button {
     display: inline-block;
     margin-left: 30px;
     order: 2;
-    font-size:large;
+    font-size: large;
     font-weight: bold;
 }
 
@@ -767,47 +768,13 @@ a:hover {
 
 /* loader bar css start */
 
-.loader_main {
+.bottom_page_spacer {
     width: 100%;
     text-align: center;
     margin-top: 140px;
-}
-
-.loader {
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #414744;
-    border-right: 16px solid #f26522;
-    border-bottom: 16px solid #414744;
-    border-left: 16px solid #f26522;
     width: 120px;
     height: 120px;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 6s linear infinite;
-    margin: 0 auto;
 }
-
-@-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-
-/* loader bar css end */
-
 
 /* jewellery section end */
 
