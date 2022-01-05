@@ -241,7 +241,7 @@
           document.getElementById("title").innerHTML = `${item.title} `
           document.getElementById("itemName").innerHTML = `${item.item_name} `
           document.getElementById("description").innerHTML = `${item.body} `
-          document.getElementById("condition").innerHTML = ` Condition ${item.condition} `
+          document.getElementById("condition").innerHTML = ` Condition: ${item.condition} `
           document.getElementById("imgLink").innerHTML = `         <img src="${item.photo}" class="card-img-top" alt="itemPicture">`
           document.getElementById("user").innerHTML = `Posted by ${item.User.username} at ${item.User.createdAt.slice(0, -14)} `
           })
