@@ -18,7 +18,8 @@ Item.init({
     allowNull: false
   },
   photo: {
-    type: DataTypes.BLOB
+    type: DataTypes.STRING,
+    allowNull: false
   }
 }, {
   sequelize,

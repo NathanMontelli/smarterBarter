@@ -154,12 +154,14 @@
           <input type="text" class="form-control" id="itemName">
         </div>
         <div class="mb-3">
+          <label for="title" class="form-label">Image Link</label>
+          <input type="text" class="form-control" id="imgLink">
+        </div>
+        <div class="mb-3">
           <label for="body" class="form-label">Description</label>
           <textarea class="form-control" name="body" id="description" cols="30" rows="10"></textarea>
         </div>
         <button id="post" type="submit" class="btn btn-primary">Create Post</button>
-        <input id="inputPicture" type="file" accept="image/*" onchange="loadFile(event)">
-        <img id="output" />
       </form>
     </div>
 
@@ -178,7 +180,7 @@
           title: document.getElementById('title').value,
           item_name: document.getElementById('itemName').value,
           body: document.getElementById('description').value,
-          photo: document.getElementById('inputPicture').value
+          photo: document.getElementById('imgLink').value
         }
         axios.post('/api/items', newPost, {
           headers: {
@@ -248,14 +250,6 @@
           event.preventDefault()
           logoutUser()
         })
-
-  var loadFile = function (event) {
-    var output = document.getElementById('output');
-    output.src = URL.createObjectURL(event.target.files[0]);
-    output.onload = function () {
-      URL.revokeObjectURL(output.src) // free memory
-    }
-  };
 
     </script>
 </body>
