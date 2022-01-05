@@ -262,55 +262,18 @@
         createPost()
       })
 
-      axios.get('/api/items', {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      })
-        .then(res => {
+            axios.get('/api/users/profile', {
+              headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+              }
+            })
+              .then(res => {
 
-          console.log(res.data)
-          let items = res.data
-          items.forEach(item => {
-            let itemElem = document.createElement('div')
-            itemElem.innerHTML = `
-
-            <div class="card" style="width: 20rem">
-              <img src="${item.photo}" class="card-img-top" alt="itemPicture">
-              <div class="card-body">
-                <h3 class="card-title data-postid="${item.id}"> ${item.title}</h3>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Posted by ${item.User.username} at ${item.User.createdAt.slice(0, -14)}</li>
-                <li class="list-group-item">Item Name: ${item.item_name}</li>
-                <li class="list-group-item">Condition: ${item.condition}</li>
-                <li class="list-group-item">Description: ${item.body}</li>
-              </ul>
-              <div class="card-body">
-                <a href="#" class="card-link">Contact Seller</a>
-                <button id="delete" type="button" class="btn btn-outline-primary">Delete Post</button>
-              </div>
-            </div>
-            <br>
-            `
-            document.getElementById('posts').prepend(itemElem)
-          })
-
-        })
-
-        function getUserPosts() {
-          axios.get('/api/users/profile', {
-            headers: {
-              'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-          })
-            .then(res => {
-
-              console.log(res.data)
-              let users = res.data
-              users.forEach(user => {
-                let userElem = document.createElement('div')
-                userElem.innerHTML = `
+                console.log(res.data)
+                let users = res.data
+                users.forEach(user => {
+                  let userElem = document.createElement('div')
+                  userElem.innerHTML = `
 
             <div class="card" style="width: 20rem">
               <img src="${user.items.photo}" class="card-img-top" alt="itemPicture">
@@ -329,10 +292,46 @@
             </div>
             <br>
             `
-                document.getElementById('posts').prepend(userElem)
-              })
-            })
-        }
+                  document.getElementById('posts').prepend(userElem)
+          })
+
+        })
+
+        // function getUserPosts() {
+        //   axios.get('/api/users/profile', {
+        //     headers: {
+        //       'Authorization': `Bearer ${localStorage.getItem('token')}`
+        //     }
+        //   })
+        //     .then(res => {
+
+        //       console.log(res.data)
+        //       let users = res.data
+        //       users.forEach(user => {
+        //         let userElem = document.createElement('div')
+        //         userElem.innerHTML = `
+
+        //     <div class="card" style="width: 20rem">
+        //       <img src="${user.items.photo}" class="card-img-top" alt="itemPicture">
+        //       <div class="card-body">
+        //         <h3 class="card-title data-postid="${user.id}"> ${user.items.title}</h3>
+        //       </div>
+        //       <ul class="list-group list-group-flush">
+        //         <li class="list-group-item">Posted by ${user.username} at ${user.createdAt.slice(0, -14)}</li>
+        //         <li class="list-group-item">Item Name: ${user.items.item_name}</li>
+        //         <li class="list-group-item">Condition: ${user.items.condition}</li>
+        //         <li class="list-group-item">Description: ${user.item.body}</li>
+        //       </ul>
+        //       <div class="card-body">
+        //         <a href="#" class="card-link">Contact Seller</a>
+        //       </div>
+        //     </div>
+        //     <br>
+        //     `
+        //         document.getElementById('posts').prepend(userElem)
+        //       })
+        //     })
+        // }
 
 
       document.addEventListener('click', event => {
@@ -354,8 +353,8 @@
           logoutUser()
         })
 
-  getUserPosts()
-  
+  // getUserPosts()
+
     </script>
 </body>
 </html>
