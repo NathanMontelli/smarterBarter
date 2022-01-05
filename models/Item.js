@@ -16,6 +16,9 @@ Item.init({
   body: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  photo: {
+    type: DataTypes.BLOB
   }
 }, {
   sequelize,

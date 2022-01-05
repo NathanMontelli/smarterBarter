@@ -205,10 +205,18 @@
           items.forEach(item => {
             let itemElem = document.createElement('div')
             itemElem.innerHTML = `
-            <h3 class="goToPost" data-postid="${item.id}"> ${item.title} </h3>
-            <h3> ${item.item_name} </h3>
-            <h5> posted by ${item.User.username} at ${item.User.createdAt.slice(0, -14)} </h5>
-            <p> ${item.body} </p>
+
+            <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="itemPicture">
+            <div class="card-body">
+              <h4 class="card-title data-postid="${item.id}"> ${item.title}</h5>
+              <h6> ${item.item_name} </h3>
+              <h6> posted by ${item.User.username} at ${item.User.createdAt.slice(0, -14)} </h3>
+              <p> ${item.body} </p>
+              <a href="#" class="btn btn-primary">Contact Seller</a>
+            </div>
+            </div>
+
             `
             document.getElementById('posts').prepend(itemElem)
           })
