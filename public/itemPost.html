@@ -154,17 +154,18 @@
           <input type="text" class="form-control" id="itemName">
         </div>
         <div class="mb-3">
-          <label for="body" class="form-label">Desscription</label>
+          <label for="body" class="form-label">Description</label>
           <textarea class="form-control" name="body" id="description" cols="30" rows="10"></textarea>
         </div>
         <button id="post" type="submit" class="btn btn-primary">Create Post</button>
-        <input type="file" accept="image/*" onchange="loadFile(event)">
+        <input id="inputPicture" type="file" accept="image/*" onchange="loadFile(event)">
         <img id="output" />
       </form>
     </div>
 
-    <div id="posts" class="row"></div>
+      <div id="posts" class="card-deck"></div>
 
+      
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -176,7 +177,8 @@
         let newPost = {
           title: document.getElementById('title').value,
           item_name: document.getElementById('itemName').value,
-          body: document.getElementById('description').value
+          body: document.getElementById('description').value,
+          photo: document.getElementById('inputPicture').value
         }
         axios.post('/api/items', newPost, {
           headers: {
@@ -206,17 +208,22 @@
             let itemElem = document.createElement('div')
             itemElem.innerHTML = `
 
-            <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="itemPicture">
-            <div class="card-body">
-              <h4 class="card-title data-postid="${item.id}"> ${item.title}</h5>
-              <h6> ${item.item_name} </h3>
-              <h6> posted by ${item.User.username} at ${item.User.createdAt.slice(0, -14)} </h3>
-              <p> ${item.body} </p>
-              <a href="#" class="btn btn-primary">Contact Seller</a>
+            <div class="card" style="width: 20rem;">
+              <img src="${item.photo}" class="card-img-top" alt="itemPicture">
+              <div class="card-body">
+                <h4 class="card-title data-postid="${item.id}"> ${item.title}</h5>
+                <h6> ${item.item_name} </h3>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Posted by ${item.User.username} at ${item.User.createdAt.slice(0, -14)}</li>
+                <li class="list-group-item">${item.body}</li>
+              </ul>
+              <div class="card-body">
+                <a href="#" class="card-link">Contact Seller</a>
+                <a href="#" class="card-link">Another link</a>
+              </div>
             </div>
-            </div>
-
+            <br>
             `
             document.getElementById('posts').prepend(itemElem)
           })
