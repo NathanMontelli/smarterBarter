@@ -1,6 +1,3 @@
---------------------------------------------------------------------- File Name: style.css ---------------------------------------------------------------------*/
-/*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
-
 @import url(animate.min.css);
 @import url(normalize.css);
 @import url(icomoon.css);
@@ -100,7 +97,7 @@ h4 a,
 h5 a,
 h6 a {
     color: #212121;
-    text-decoration: none!important;
+    text-decoration: none !important;
     opacity: 1
 }
 
@@ -145,7 +142,7 @@ img {
     height: auto;
 }
 
- :focus {
+:focus {
     outline: 0;
 }
 
@@ -287,6 +284,7 @@ button {
 /* header section start */
 
 .header_section {
+    padding-top: 75px;
     width: 100%;
     display: flex;
 }
@@ -336,6 +334,7 @@ button {
     .sidenav {
         padding-top: 15px;
     }
+
     .sidenav a {
         font-size: 18px;
     }
@@ -352,16 +351,15 @@ button {
     display: flex;
 }
 
-.dropdown,
-.dropleft,
-.dropright,
-.dropup {
+.dropdown {
     position: relative;
     margin: 0 auto;
     text-align: center;
     display: inline-block;
     margin-left: 30px;
     order: 2;
+    font-size: x-large;
+    font-weight: bold;
 }
 
 .btn-secondary {
@@ -446,31 +444,6 @@ button {
 .padding_10 {
     padding-left: 10px;
 }
-
-
-/* flage css start */
-
-.lang_box {
-    display: flex;
-    float: right;
-    background: #fff;
-    border-radius: 5px;
-    margin-right: 20px;
-}
-
-.nav-link {
-    display: block;
-    padding: .4rem 1rem;
-}
-
-a:hover {
-    color: #f26522;
-    text-decoration: underline;
-}
-
-
-/* flage css end */
-
 
 /* header section end */
 
@@ -764,47 +737,13 @@ a:hover {
 
 /* loader bar css start */
 
-.loader_main {
+.bottom_page_spacer {
     width: 100%;
     text-align: center;
     margin-top: 140px;
-}
-
-.loader {
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #414744;
-    border-right: 16px solid #f26522;
-    border-bottom: 16px solid #414744;
-    border-left: 16px solid #f26522;
     width: 120px;
     height: 120px;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 6s linear infinite;
-    margin: 0 auto;
 }
-
-@-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-
-/* loader bar css end */
-
 
 /* jewellery section end */
 
@@ -824,77 +763,7 @@ a:hover {
 .footer_logo {
     width: 100%;
     text-align: center;
-}
-
-.input_bt {
-    width: 60%;
-    margin: 0 auto;
-    text-align: center;
-    display: flex;
-    border-bottom: 1px solid #ffffff !important;
-}
-
-.mail_bt {
-    width: 100%;
-    float: left;
-    font-size: 18px;
-    color: #fff;
-    background-color: transparent;
-    padding: 5px 0px 5px 0px;
-    height: 60px;
-    border: 0px;
-}
-
-input.mail_bt::placeholder {
-    color: #fff;
-}
-
-.subscribe_bt {
-    width: 30%;
-    float: right;
-    font-size: 16px;
-    color: #f26522;
-    background-color: transparent;
-    padding: 20px 0px 5px 0px;
-    border-radius: 30px;
-    border: 0px;
-    text-transform: uppercase;
-    text-align: right;
-}
-
-.subscribe_bt a {
-    color: #f26522;
-}
-
-.subscribe_bt a:hover {
-    color: #ffffff;
-}
-
-.footer_menu {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.footer_menu ul {
-    margin: 0px;
-    padding: 0px;
-    display: inline-block;
-}
-
-.footer_menu li {
-    float: left;
-    font-size: 16px;
-    color: #f1f1f1;
-    padding: 20px 10px 0px 10px;
-}
-
-.footer_menu li a {
-    color: #f1f1f1;
-}
-
-.footer_menu li a:hover {
-    color: #f26522;
+    color: white;
 }
 
 .location_main {
@@ -944,14 +813,5 @@ input.mail_bt::placeholder {
 .copyright_text a {
     color: #ffffff;
 }
-
-.copyright_text a:hover {
-    color: #f26522;
-}
-
-.margin_top90 {
-    margin-top: 90px;
-}
-
 
 /* copyright section end */

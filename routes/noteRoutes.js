@@ -4,7 +4,7 @@ const passport = require('passport')
 
 // GET all comments
 router.get('/notes', passport.authenticate('jwt'), async function (req, res) {
-  const notes = await Note.findAll({ include: [User] })
+  const notes = await Note.findAll({ include: [User, Item] })
   res.json(notes)
 })
 
