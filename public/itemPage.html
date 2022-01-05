@@ -213,6 +213,7 @@
  <!-- sidebar -->
  <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
  <script src="js/custom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
  <script>
   function openNav() {
    document.getElementById("mySidenav").style.width = "250px";
@@ -221,6 +222,26 @@
   function closeNav() {
    document.getElementById("mySidenav").style.width = "0";
   }
+ </script>
+
+ <script>
+
+   let postId = localStorage.getItem('postId')
+   console.log(postId)
+          axios.get(`/api/items/${postId}`, {
+            headers: {
+              'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+          })
+            .then(res => {
+              console.log(res.data)
+          })
+
+
+
+
+
+
  </script>
 </body>
 
