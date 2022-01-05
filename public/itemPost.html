@@ -46,17 +46,6 @@
   <!-- banner bg main start -->
   <div class="banner_bg_main">
     <!-- header top section start -->
-    <!-- logo section start -->
-    <div class="logo_section">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="logo"><a href="index.html">Smarter Barter</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- logo section end -->
     <!-- header section start -->
     <div class="header_section">
       <div class="container">
@@ -64,11 +53,14 @@
           <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="index.html">Home</a>
-            <a href="fashion.html">Fashion</a>
-            <a href="electronic.html">Electronic</a>
-            <a href="jewelery.html">Jewelry</a>
+            <a href="itemPost.html">Post Your Item</a>
+            <a href="" id="logout">Logout</a>
+            <!-- <a href="jewelery.html">Jewelry</a> -->
           </div>
           <span class="toggle_icon" onclick="openNav()"><img src="images/toggle-icon.png"></span>
+          <div class="dropdown">
+            SmarterBarter
+          </div>
           <div class="main">
             <!-- Another variation with a button -->
             <div class="input-group">
@@ -84,10 +76,6 @@
             <div class="login_menu">
               <ul>
                 <li><a href="/itemPost.html">
-                    <i class="fas fa-camera"></i>
-                    <span class="padding_10">Post</span></a>
-                </li>
-                <li><a href="#">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <span class="padding_10">Profile</span></a>
                 </li>
@@ -119,7 +107,7 @@
               <div class="row">
                 <div class="col-sm-12">
                   <h1 class="banner_taital">Get Started With <br>Your First Post</h1>
-                  <div class="buynow_bt"><a href="#">Post</a></div>
+                  <div class="buynow_bt"><a href="/itemPost.html">Post</a></div>
                 </div>
               </div>
             </div>
@@ -262,29 +250,31 @@
         createPost()
       })
 
-            axios.get('/api/users/profile', {
+      function getUserPosts() {
+        axios.get('/api/users/profile', {
               headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
               }
             })
               .then(res => {
-
+                
                 console.log(res.data)
-                let users = res.data
-                users.forEach(user => {
-                  let userElem = document.createElement('div')
-                  userElem.innerHTML = `
-
+                let items = res.data.items
+                let userInfo = res.data
+                items.forEach(item => {
+                  let itemElem = document.createElement('div')
+                  itemElem.innerHTML = `
+            <br>
             <div class="card" style="width: 20rem">
-              <img src="${user.items.photo}" class="card-img-top" alt="itemPicture">
+              <img src="${item.photo}" class="card-img-top" alt="itemPicture">
               <div class="card-body">
-                <h3 class="card-title data-postid="${user.id}"> ${user.items.title}</h3>
+                <h3 class="card-title data-postid="${item.id}"> ${item.title}</h3>
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">Posted by ${user.username} at ${user.createdAt.slice(0, -14)}</li>
-                <li class="list-group-item">Item Name: ${user.items.item_name}</li>
-                <li class="list-group-item">Condition: ${user.items.condition}</li>
-                <li class="list-group-item">Description: ${user.item.body}</li>
+                <li class="list-group-item">Posted by ${userInfo.username} at ${item.createdAt.slice(0, -14)}</li>
+                <li class="list-group-item">Item Name: ${item.item_name}</li>
+                <li class="list-group-item">Condition: ${item.condition}</li>
+                <li class="list-group-item">Description: ${item.body}</li>
               </ul>
               <div class="card-body">
                 <a href="#" class="card-link">Contact Seller</a>
@@ -292,11 +282,10 @@
             </div>
             <br>
             `
-                  document.getElementById('posts').prepend(userElem)
+                  document.getElementById('posts').prepend(itemElem)
           })
-
         })
-
+      }
         // function getUserPosts() {
         //   axios.get('/api/users/profile', {
         //     headers: {
@@ -353,7 +342,7 @@
           logoutUser()
         })
 
-  // getUserPosts()
+  getUserPosts()
 
     </script>
 </body>
