@@ -1,12 +1,15 @@
 const router = require('express').Router()
 const { Item, Category, Note, User } = require('../models')
 const passport = require('passport')
+const req = require('express/lib/request')
+const res = require('express/lib/response')
 
 // GET all posts
 router.get('/items', passport.authenticate('jwt'), async function (req, res) {
   const items = await Item.findAll({ include: [User, Category, Note] })
   res.json(items)
 })
+
 
 //get one item
 router.get('/items/:id', passport.authenticate('jwt'), async function (req, res) {

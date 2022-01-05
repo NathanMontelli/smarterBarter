@@ -21,6 +21,12 @@ router.post('/users/login', (req, res) => {
   })
 })
 
+//get all posts from one user
+router.get('/user/:id', passport.authenticate('jwt'), async function (req, res) {
+  const User = await User.findOne({ where: { id: req.params.id }, include: [ Item, Category, Note] })
+  res.json(user)
+})
+
 router.get('/users/profile', passport.authenticate('jwt'), (req, res) => res.json(req.user))
 
 
