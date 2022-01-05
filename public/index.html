@@ -83,7 +83,7 @@
                 </li>
                 <li><a href="#">
                     <i class="fa fa-user" aria-hidden="true"></i>
-                    <span id="logout" class="padding_10">Logout</span></a>
+                    <span id="logout2" class="padding_10">Logout</span></a>
                 </li>
               </ul>
             </div>
@@ -180,6 +180,10 @@
         event.preventDefault()
         logoutUser()
       })
+    document.getElementById("logout2").addEventListener('click', event => {
+      event.preventDefault()
+      logoutUser()
+     }) 
 
       function getPosts() {
         axios.get('/api/items', {

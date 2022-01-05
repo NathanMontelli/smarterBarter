@@ -81,7 +81,7 @@
                 </li>
                 <li><a href="#">
                     <i class="fa fa-user" aria-hidden="true"></i>
-                    <span id="logout" class="padding_10">Logout</span></a>
+                    <span id="logout2" class="padding_10">Logout</span></a>
                 </li>
               </ul>
             </div>
@@ -277,59 +277,23 @@
                 <li class="list-group-item">Description: ${item.body}</li>
               </ul>
               <div class="card-body">
-                <a href="#" class="card-link">Contact Seller</a>
+                <a href="/itemPage.html" class="btn btn-dark btn-lg goToPost" data-postid="${item.id}" tabindex="-1" role="button">More Detail</a>
               </div>
             </div>
             <br>
             `
-                  document.getElementById('posts').prepend(itemElem)
+            document.getElementById('posts').prepend(itemElem)
           })
         })
       }
-        // function getUserPosts() {
-        //   axios.get('/api/users/profile', {
-        //     headers: {
-        //       'Authorization': `Bearer ${localStorage.getItem('token')}`
-        //     }
-        //   })
-        //     .then(res => {
 
-        //       console.log(res.data)
-        //       let users = res.data
-        //       users.forEach(user => {
-        //         let userElem = document.createElement('div')
-        //         userElem.innerHTML = `
-
-        //     <div class="card" style="width: 20rem">
-        //       <img src="${user.items.photo}" class="card-img-top" alt="itemPicture">
-        //       <div class="card-body">
-        //         <h3 class="card-title data-postid="${user.id}"> ${user.items.title}</h3>
-        //       </div>
-        //       <ul class="list-group list-group-flush">
-        //         <li class="list-group-item">Posted by ${user.username} at ${user.createdAt.slice(0, -14)}</li>
-        //         <li class="list-group-item">Item Name: ${user.items.item_name}</li>
-        //         <li class="list-group-item">Condition: ${user.items.condition}</li>
-        //         <li class="list-group-item">Description: ${user.item.body}</li>
-        //       </ul>
-        //       <div class="card-body">
-        //         <a href="#" class="card-link">Contact Seller</a>
-        //       </div>
-        //     </div>
-        //     <br>
-        //     `
-        //         document.getElementById('posts').prepend(userElem)
-        //       })
-        //     })
-        // }
-
-
-      document.addEventListener('click', event => {
-        if (event.target.classList.contains('goToPost')) {
-          console.log('ping')
-          localStorage.setItem('postId', event.target.dataset.postid)
-          location = '/post.html'
-        }
-      })
+    document.addEventListener('click', event => {
+      if (event.target.classList.contains('goToPost')) {
+      console.log('ping')
+      localStorage.setItem('postId', event.target.dataset.postid)
+      location = '/itemPage.html'
+              }
+            })
 
         async function logoutUser() {
           localStorage.removeItem('username')
@@ -341,6 +305,10 @@
           event.preventDefault()
           logoutUser()
         })
+        document.getElementById("logout2").addEventListener('click', event => {
+            event.preventDefault()
+            logoutUser()
+          })
 
   getUserPosts()
 
