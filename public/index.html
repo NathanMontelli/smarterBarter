@@ -207,7 +207,7 @@
                 <li class="list-group-item">Description: ${item.body}</li>
               </ul>
               <div class="card-body">
-                <a href="/itemPage.html" class="card-link">More Detail</a>
+                <a href="/itemPage.html" class="btn btn-dark btn-lg goToPost" data-postid="${item.id}" tabindex="-1" role="button">More Detail</a>
               </div>
             </div>
             <br>
@@ -217,8 +217,16 @@
 
           })
         }
-
         getPosts()
+
+          document.addEventListener('click', event => {
+            if (event.target.classList.contains('goToPost')) {
+              console.log('ping')
+              localStorage.setItem('postId', event.target.dataset.postid)
+              location = '/itemPage.html'
+            }
+          })
+
   </script>
 </body>
 
