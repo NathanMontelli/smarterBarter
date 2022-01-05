@@ -34,17 +34,17 @@
           <div class="login-wrap p-0">
             <form action="#" class="signin-form">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Username" required>
+                <input id="lUsername" type="text" class="form-control" placeholder="Username" required>
               </div>
               <div class="form-group">
                 <input id="password-field" type="password" class="form-control" placeholder="Password" required>
                 <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
               </div>
               <div class="form-group">
-                <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+                <button id="login" type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
               </div>
               <div class="social d-flex text-center">
-                <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Register </a>
+                <a href="/register.html" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Register </a>
                 <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Forgot
                   Password</a>
               </div>
@@ -60,10 +60,9 @@
       </div>
     </div>
   </section>
-
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="../js/jquery.min.js"></script>
   <script src="../js/main.js"></script>
-
   <script>
 
     async function registerUser(user) {
@@ -86,26 +85,12 @@
       }
     }
 
-    document.getElementById('register').addEventListener('click', async function (event) {
-      event.preventDefault()
-
-      const isCreated = await registerUser({
-        username: document.getElementById('rUsername').value,
-        email: document.getElementById('rEmail').value,
-        password: document.getElementById('rPassword').value
-      })
-
-      if (isCreated) {
-        alert('Account Created! Please Login.')
-      }
-    })
-
     document.getElementById('login').addEventListener('click', async function (event) {
       event.preventDefault()
 
       const { username, token } = await loginUser({
         username: document.getElementById('lUsername').value,
-        password: document.getElementById('lPassword').value
+        password: document.getElementById('password-field').value
       })
 
       if (token) {
