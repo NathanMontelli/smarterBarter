@@ -142,45 +142,111 @@
       </div>
     </div>
     <!-- banner section end -->
-  </div>
+  <div class="container">
     <div class="row">
       <form>
         <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
+          <label for="title" class="form-label">Title (required)</label>
           <input type="text" class="form-control" id="title">
         </div>
         <div class="mb-3">
-          <label for="title" class="form-label">Item Name</label>
+          <label for="title" class="form-label">Category (required)</label>
+          <div class="category-dropdown-menu">
+            <select id="category" name="status">
+              <option>Electronics & Media</option>
+              <option>Home & Garden</option>
+              <option>Clothing, Shoes, & Accessories</option>
+              <option>Baby & Kids</option>
+              <option>Vehicles</option>
+              <option>Toys, Games, & Hobbies</option>
+              <option>Sports & Outdoors</option>
+              <option>Collectibles & Art</option>
+              <option>Pet supplies</option>
+              <option>Health & Beauty</option>
+              <option>Wedding</option>
+              <option>Business equipment</option>
+              <option>Tickets</option>
+              <option>General</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Brand (optional)</label>
           <input type="text" class="form-control" id="itemName">
         </div>
         <div class="mb-3">
-          <label for="title" class="form-label">Image Link</label>
+          <label for="title" class="form-label">Condition (required)</label>
+          <div class="condition-dropdown-menu">
+            <select id="status" name="status">
+              <option>New</option>
+              <option>Reconditioned/Certified</option>
+              <option>Open box (never used)</option>
+              <option>Used (normal wear)</option>
+              <option>For parts</option>
+              <option>Other (see description)</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Link For Image (required)</label>
           <input type="text" class="form-control" id="imgLink">
         </div>
         <div class="mb-3">
-          <label for="body" class="form-label">Description</label>
-          <textarea class="form-control" name="body" id="description" cols="30" rows="10"></textarea>
+          <label for="body" class="form-label">Description (optional)</label>
+          <textarea class="form-control" name="body" id="description" cols="30" rows="5"></textarea>
         </div>
-        <button id="post" type="submit" class="btn btn-primary">Create Post</button>
+        <button id="post" type="submit" class="btn btn-dark">Create Post</button>
       </form>
     </div>
+  </div>
+  <br>
+  
+      <div id="posts" class="card-deck container"></div>
 
-      <div id="posts" class="card-deck"></div>
-
-      
+  <div class="footer_section layout_padding">
+    <div class="container">
+      <div class="location_main">Contributors: Alan | Harrison | Nathan | Oliver | Timmay</div>
+    </div>
+  </div>
+  <!-- footer section end -->
+  <!-- copyright section start -->
+  <div class="copyright_section">
+    <div class="container">
+      <p class="copyright_text">© 2022 SmarterBarter Inc.</p>
+    </div>
+  </div>
+  <!-- copyright section end -->
+  <!-- Javascript files-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery-3.0.0.min.js"></script>
+  <script src="js/plugin.js"></script>
+  <!-- sidebar -->
+  <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="js/custom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
 
       function createPost() {
         let newPost = {
           title: document.getElementById('title').value,
           item_name: document.getElementById('itemName').value,
           body: document.getElementById('description').value,
-          photo: document.getElementById('imgLink').value
+          photo: document.getElementById('imgLink').value,
+          condition: document.getElementById('status').value,
+          type: document.getElementById('category').value
         }
         axios.post('/api/items', newPost, {
           headers: {
@@ -193,7 +259,6 @@
       }
 
       document.getElementById("post").addEventListener('click', event => {
-        event.preventDefault()
         createPost()
       })
 
@@ -210,19 +275,19 @@
             let itemElem = document.createElement('div')
             itemElem.innerHTML = `
 
-            <div class="card" style="width: 20rem;">
+            <div class="card" style="width: 20rem">
               <img src="${item.photo}" class="card-img-top" alt="itemPicture">
               <div class="card-body">
-                <h4 class="card-title data-postid="${item.id}"> ${item.title}</h5>
-                <h6> ${item.item_name} </h3>
+                <h3 class="card-title data-postid="${item.id}"> ${item.title}</h3>
               </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Posted by ${item.User.username} at ${item.User.createdAt.slice(0, -14)}</li>
-                <li class="list-group-item">${item.body}</li>
+                <li class="list-group-item">Item Name: ${item.item_name}</li>
+                <li class="list-group-item">Condition: ${item.condition}</li>
+                <li class="list-group-item">Description: ${item.body}</li>
               </ul>
               <div class="card-body">
                 <a href="#" class="card-link">Contact Seller</a>
-                <a href="#" class="card-link">Another link</a>
               </div>
             </div>
             <br>

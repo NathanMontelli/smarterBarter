@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require('sequelize')
+const { Category } = require('.')
 const sequelize = require('../db')
 
 class Item extends Model { }
@@ -18,6 +19,14 @@ Item.init({
     allowNull: false
   },
   photo: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  type: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  condition: {
     type: DataTypes.STRING,
     allowNull: false
   }
