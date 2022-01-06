@@ -10,7 +10,7 @@
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
  <!-- site metas -->
- <title>Smarter Barter - Item</title>
+ <title>SmarterBarter - Item</title>
  <meta name="keywords" content="">
  <meta name="description" content="">
  <meta name="author" content="">
@@ -215,43 +215,6 @@
           document.getElementById("user").innerHTML = `Posted by ${item.User.username} at ${item.User.createdAt.slice(0, -14)} `
         })
 
-      function createComment() {
-        let newComment = {
-          body: document.getElementById('newComment').value
-        }
-        axios.post('/api/notes', newComment, {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
-        })
-          .then(res => {
-            console.log(res)
-          })
-      }
-
-      document.getElementById("submitComment").addEventListener('click', event => {
-        event.preventDefault()
-        createComment()
-      })
-
-      axios.get('/api/notes', {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      })
-      .then (res => {
-        console.log(res.data)
-        let notes = res.data
-        notes.forEach(note => {
-          let noteElem = document.createElement('div')
-          noteElem.innerHTML = `
-          data-postid=${post.id}
-          <h4> posted by ${User.username} </h4>
-          <p> ${note.body} </p>
-          `
-          document.getElementById('allComments').prepend(noteElem)
-        })
-      })
 
             function createComment() {
               let newComment = {
