@@ -215,43 +215,6 @@
           document.getElementById("user").innerHTML = `Posted by ${item.User.username} at ${item.User.createdAt.slice(0, -14)} `
         })
 
-      function createComment() {
-        let newComment = {
-          body: document.getElementById('newComment').value
-        }
-        axios.post('/api/notes', newComment, {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
-        })
-          .then(res => {
-            console.log(res)
-          })
-      }
-
-      document.getElementById("submitComment").addEventListener('click', event => {
-        event.preventDefault()
-        createComment()
-      })
-
-      axios.get('/api/notes', {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      })
-      .then (res => {
-        console.log(res.data)
-        let notes = res.data
-        notes.forEach(note => {
-          let noteElem = document.createElement('div')
-          noteElem.innerHTML = `
-          data-postid=${post.id}
-          <h4> posted by ${User.username} </h4>
-          <p> ${note.body} </p>
-          `
-          document.getElementById('allComments').prepend(noteElem)
-        })
-      })
 
             function createComment() {
               let newComment = {
