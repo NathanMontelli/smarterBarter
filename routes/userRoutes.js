@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Item, Category, Note, User } = require('../models')
+const { Item, Note, User } = require('../models')
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
 
@@ -23,9 +23,5 @@ router.post('/users/login', (req, res) => {
 
 router.get('/users/profile', passport.authenticate('jwt'), (req, res) => res.json(req.user))
 
-// router.get('/users/:id', passport.authenticate('jwt'), async function (req, res) {
-//   const user = await User.findOne({ where: { id: req.params.id }, include: [Item, Category, Note] })
-//   res.json(user)
-// })
 
 module.exports = router
