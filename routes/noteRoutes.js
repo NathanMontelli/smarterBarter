@@ -18,4 +18,10 @@ router.post('/notes', passport.authenticate('jwt'), async function (req, res) {
   res.json(note)
 })
 
+router.get('/notes/:id', passport.authenticate('jwt'), async function (req, res) {
+  const note = await Note.findAll({ where: { iid: req.params.id }, include: [User] })
+  res.json(note)
+})
+
+
 module.exports = router

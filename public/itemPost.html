@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
   <!-- site metas -->
-  <title>Smarter Barter</title>
+  <title>SmarterBarter</title>
   <meta name="keywords" content="">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -36,7 +36,7 @@
   <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:400,700&display=swap&subset=latin-ext"
     rel="stylesheet">
   <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesoeet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
     media="screen">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -217,6 +217,7 @@
   <!-- sidebar -->
   <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
   <script src="js/custom.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
   <!-- post section end -->
@@ -265,7 +266,15 @@
       }
 
       document.getElementById("post").addEventListener('click', event => {
+        event.preventDefault()
         createPost()
+        Swal.fire({
+          icon: 'success',
+          title: 'Your Item Has Been Posted',
+          showConfirmButton: false,
+          timer: 1000
+        })
+        setTimeout(location.reload.bind(location), 2000);
       })
 
       function getUserPosts() {
@@ -301,6 +310,7 @@
             <br>
             `
             document.getElementById('posts').prepend(itemElem)
+
           })
         })
       }

@@ -10,7 +10,7 @@
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
  <!-- site metas -->
- <title>Smarter Barter - Item</title>
+ <title>SmarterBarter - Item</title>
  <meta name="keywords" content="">
  <meta name="description" content="">
  <meta name="author" content="">
@@ -63,7 +63,8 @@
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search Item">
               <div class="input-group-append">
-                <button class="btn btn-secondary" type="button" style="background-color: #f26522; border-color:#f26522 ">
+                <button class="btn btn-secondary" type="button"
+                  style="background-color: #f26522; border-color:#f26522 ">
                   <i class="fa fa-search"></i>
                 </button>
               </div>
@@ -128,36 +129,23 @@
     </div>
     <!-- banner section end -->
 
- <!--- item display start -->
+    <!--- item display start -->
+
 
  <div class="container"> 
-  <div id="imgLink" class="item-pic"><img src="https://www.techspot.com/articles-info/2249/images/2021-05-06-image.jpg"></div>
-
-  <br>
-
-  <div id="title" class="item-name">CyberpowerPC Gamer Supreme Liquid Cool Gaming PC
+  <div id="imgLink" class="item-pic"><img src=""></div>
+      <br>
+  <div id="title" class="item-name">
   </div>
   <div id="itemName" class="item-price"></div>
-  <div id="condition" class="item-condition">Condition: Used (normal-wear)</div>
-  <div id="user" class="item-condition">Condition: Used (normal-wear)</div>
+  <div id="condition" class="item-condition"></div>
+  <div id="user" class="item-condition"></div>
   <div class="description-title">Description</div>
   <div id="description" class="item-description">
-  Selling my gaming/editing rig. Only thing I changed from factory purchase was upgrading the ram to Corsair Vengeance RGB
-  Pro 32GB (4x8GB) DDR4 3200MHz. I use a Mac for editing now so it gets no use.
-  
-  System: Intel Core i7-9700k 3. 6GHz 8-Core: Intel Z390 Chipset, Corsair Vengeance RGB Pro 32GB (4x8GB) DDR4 3200MHz C16
-  LED Desktop Memory, 1TB PCI-E NV Me SSD: Genuine Windows 10 Home 64-bit
-  
-  Graphics: NVIDIA GeForce RTX 2070 Super 8GB Video Card, 1x HDMI, 2x DisplayPort
-  Connectivity: 6 x USB 3.1, 2 x USB 2. 0, 1x RJ-45 Network Ethernet 10/100/1000, 802.11AC Wi-Fi: Audio: 7.1 Channel
-  
-  Special feature: Liquid Cooling; Tempered glass side case panel; Custom ARGB case lighting</div>
+  </div>
 
   <hr>
   <br>
-  <div class="description-title">Comments</div>
-  <hr>
-  <div id="notes" class="row"></div>
 
   <div class="mb-3">
   <label for="body" class="form-label">Comments</label>
@@ -166,11 +154,12 @@
   <button id="submitComment" type="button" class="btn btn-dark btn-lg btn-block" data-target="#exampleModal">
   Submit Comment
   </button>
-  <br>
+  <div class="description-title">Comments</div>
+  <hr>
+  <div id="notes" class="row"></div>
 
-  <br><br>
-
- </div>
+  <br><br><br>
+    </div>
 
  <!-- footer section start -->
  <div class="footer_section layout_padding">
@@ -200,24 +189,23 @@
   function openNav() {
    document.getElementById("mySidenav").style.width = "250px";
   }
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
 
-  function closeNav() {
-   document.getElementById("mySidenav").style.width = "0";
-  }
- </script>
+    <script>
 
- <script>
-
-   let postId = localStorage.getItem('postId')
-   console.log(postId)
-          axios.get(`/api/items/${postId}`, {
-            headers: {
-              'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-          })
-            .then(res => {
-              // console.log(res.data)
-              let item = res.data
+      let postId = localStorage.getItem('postId')
+      console.log(postId)
+      axios.get(`/api/items/${postId}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+        .then(res => {
+          console.log(res.data)
+          let item = res.data
 
           document.getElementById("title").innerHTML = `${item.title} `
           document.getElementById("itemName").innerHTML = `${item.item_name} `
@@ -225,12 +213,13 @@
           document.getElementById("condition").innerHTML = ` Condition: ${item.condition} `
           document.getElementById("imgLink").innerHTML = `<img src="${item.photo}" class="card-img-top" alt="itemPicture">`
           document.getElementById("user").innerHTML = `Posted by ${item.User.username} at ${item.User.createdAt.slice(0, -14)} `
-          })
+        })
 
 
             function createComment() {
               let newComment = {
-                body: document.getElementById('commentBox').value
+                body: document.getElementById('commentBox').value,
+                iid: postId
               }
               axios.post('/api/notes', newComment, {
                 headers: {
@@ -243,11 +232,13 @@
             }
 
             document.getElementById("submitComment").addEventListener('click', event => {
+              event.preventDefault()
               createComment()
+              location.reload()
             })
 
       function getAllNotes() {
-        axios.get('/api/notes', {
+        axios.get(`/api/notes/${postId}`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
@@ -260,11 +251,11 @@
               noteElem.innerHTML = `
 
               <h5>${note.User.username} Commented At ${note.createdAt.slice(0, -14)} </h5>
-              <p>${note.body}</p>
+              <h6>${note.body}</h6>
 
               <hr>
               `
-              document.getElementById('notes').append(noteElem)
+              document.getElementById('notes').prepend(noteElem)
             })
           })
         }
@@ -289,7 +280,7 @@
       }) 
 
 
- </script>
+    </script>
 </body>
 
 </html>
