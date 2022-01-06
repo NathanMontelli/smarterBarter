@@ -63,7 +63,8 @@
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search Item">
               <div class="input-group-append">
-                <button class="btn btn-secondary" type="button" style="background-color: #f26522; border-color:#f26522 ">
+                <button class="btn btn-secondary" type="button"
+                  style="background-color: #f26522; border-color:#f26522 ">
                   <i class="fa fa-search"></i>
                 </button>
               </div>
@@ -128,13 +129,12 @@
     </div>
     <!-- banner section end -->
 
- <!--- item display start -->
+    <!--- item display start -->
+
 
  <div class="container"> 
   <div id="imgLink" class="item-pic"><img src=""></div>
-
-  <br>
-
+      <br>
   <div id="title" class="item-name">
   </div>
   <div id="itemName" class="item-price"></div>
@@ -154,16 +154,12 @@
   <button id="submitComment" type="button" class="btn btn-dark btn-lg btn-block" data-target="#exampleModal">
   Submit Comment
   </button>
-
   <div class="description-title">Comments</div>
   <hr>
   <div id="notes" class="row"></div>
 
-  <br>
-
-  <br><br>
-
- </div>
+  <br><br><br>
+    </div>
 
  <!-- footer section start -->
  <div class="footer_section layout_padding">
@@ -193,24 +189,23 @@
   function openNav() {
    document.getElementById("mySidenav").style.width = "250px";
   }
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
 
-  function closeNav() {
-   document.getElementById("mySidenav").style.width = "0";
-  }
- </script>
+    <script>
 
- <script>
-
-   let postId = localStorage.getItem('postId')
-   console.log(postId)
-          axios.get(`/api/items/${postId}`, {
-            headers: {
-              'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-          })
-            .then(res => {
-              console.log(res.data)
-              let item = res.data
+      let postId = localStorage.getItem('postId')
+      console.log(postId)
+      axios.get(`/api/items/${postId}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+        .then(res => {
+          console.log(res.data)
+          let item = res.data
 
           document.getElementById("title").innerHTML = `${item.title} `
           document.getElementById("itemName").innerHTML = `${item.item_name} `
@@ -218,8 +213,45 @@
           document.getElementById("condition").innerHTML = ` Condition: ${item.condition} `
           document.getElementById("imgLink").innerHTML = `<img src="${item.photo}" class="card-img-top" alt="itemPicture">`
           document.getElementById("user").innerHTML = `Posted by ${item.User.username} at ${item.User.createdAt.slice(0, -14)} `
-          })
+        })
 
+      function createComment() {
+        let newComment = {
+          body: document.getElementById('newComment').value
+        }
+        axios.post('/api/notes', newComment, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        })
+          .then(res => {
+            console.log(res)
+          })
+      }
+
+      document.getElementById("submitComment").addEventListener('click', event => {
+        event.preventDefault()
+        createComment()
+      })
+
+      axios.get('/api/notes', {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+      .then (res => {
+        console.log(res.data)
+        let notes = res.data
+        notes.forEach(note => {
+          let noteElem = document.createElement('div')
+          noteElem.innerHTML = `
+          data-postid=${post.id}
+          <h4> posted by ${User.username} </h4>
+          <p> ${note.body} </p>
+          `
+          document.getElementById('allComments').prepend(noteElem)
+        })
+      })
 
             function createComment() {
               let newComment = {
@@ -285,7 +317,7 @@
       }) 
 
 
- </script>
+    </script>
 </body>
 
 </html>
