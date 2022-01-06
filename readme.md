@@ -1,9 +1,17 @@
+  # SmarterBarter
+
+![Badge for GitHub last commit](https://img.shields.io/github/last-commit/NathanMontelli/smarterBarter?style=flat&logo=appveyor) ![Badge for GitHub commit activity](https://img.shields.io/github/commit-activity/w/NathanMontelli/smarterBarter?color=purple)
+
+  
   ## Table of Content
 
-  -[Description](#description)
-  -[Installation](#installation)
-  -[Usage](#usage)
-  -[Questions](#questions)
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
 
   ## Description
   This project demonstrates how to create a web application where a user can be created and added to a database, the ability to sign in and actively use the website, and the ability to post items and comments.
@@ -21,18 +29,19 @@
     passport-jwt
     passport-local-sequelize
     sequelize
+    sweetalert2
 
   ## Usage
   Provided usage instructions and examples insure the desired development environment and outcome:
 
-    Create an account and by inputting an email, username and password or by using Facebook.
+    Create an account and by inputting an email, username and password.
 
     Sign in after creating account to access website home page.
 
     Post or comment on items and interact with other members on the website.
 
   ## Questions
-If you have any questions, you may contact using the information below
+If you have any questions, you may contact using the information below:
 
     GitHub: https://github.com/Harrison-Reich
     Github: https://github.com/LohasOT
@@ -44,4 +53,4 @@ If you have any questions, you may contact using the information below
     Email: oliver93@gmail.com
     Email: alntruong7@gmail.com
     Email: nathanmontelli@gmail.com
-    Email: 
+    Email: durantimothy21@gmail.com
