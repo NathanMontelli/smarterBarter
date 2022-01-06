@@ -282,11 +282,12 @@
         }
       })
       .then (res => {
-        console.lol(res.data)
+        console.log(res.data)
         let notes = res.data
         notes.forEach(note => {
           let noteElem = document.createElement('div')
           noteElem.innerHTML = `
+          data-postid=${post.id}
           <h4> posted by ${User.username} </h4>
           <p> ${note.body} </p>
           `
