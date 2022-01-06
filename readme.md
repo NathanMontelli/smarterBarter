@@ -21,6 +21,7 @@
     passport-jwt
     passport-local-sequelize
     sequelize
+    sweetalert2
 
   ## Usage
   Provided usage instructions and examples insure the desired development environment and outcome:
@@ -32,7 +33,7 @@
     Post or comment on items and interact with other members on the website.
 
   ## Questions
-If you have any questions, you may contact using the information below
+If you have any questions, you may contact using the information below:
 
     GitHub: https://github.com/Harrison-Reich
     Github: https://github.com/LohasOT
