@@ -544,6 +544,11 @@ button {
 .item-description {
  font-size: 17px;
 }
+
+.comments-title {
+  font-size: 20px;
+  font-weight: bold;
+}
 /* item end */
 
 /* modal start */
