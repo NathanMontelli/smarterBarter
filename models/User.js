@@ -10,6 +10,9 @@ const User = pls.defineUser(sequelize, {
   email: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  facebookId: {
+    type: DataTypes.STRING
   }
 })
 
