@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
   <!-- site metas -->
-  <title>Smarter Barter</title>
+  <title>SmarterBarter</title>
   <meta name="keywords" content="">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -36,7 +36,7 @@
   <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:400,700&display=swap&subset=latin-ext"
     rel="stylesheet">
   <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesoeet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
     media="screen">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -46,17 +46,6 @@
   <!-- banner bg main start -->
   <div class="banner_bg_main">
     <!-- header top section start -->
-    <!-- logo section start -->
-    <div class="logo_section">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="logo"><a href="index.html">Smarter Barter</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- logo section end -->
     <!-- header section start -->
     <div class="header_section">
       <div class="container">
@@ -64,11 +53,14 @@
           <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="index.html">Home</a>
-            <a href="fashion.html">Fashion</a>
-            <a href="electronic.html">Electronic</a>
-            <a href="jewelery.html">Jewelry</a>
+            <a href="itemPost.html">Post Your Item</a>
+            <a href="" id="logout">Logout</a>
+            <!-- <a href="jewelery.html">Jewelry</a> -->
           </div>
           <span class="toggle_icon" onclick="openNav()"><img src="images/toggle-icon.png"></span>
+          <div class="dropdown">
+            SmarterBarter
+          </div>
           <div class="main">
             <!-- Another variation with a button -->
             <div class="input-group">
@@ -84,16 +76,12 @@
             <div class="login_menu">
               <ul>
                 <li><a href="/itemPost.html">
-                    <i class="fas fa-camera"></i>
-                    <span class="padding_10">Post</span></a>
-                </li>
-                <li><a href="#">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <span class="padding_10">Profile</span></a>
                 </li>
                 <li><a href="#">
                     <i class="fa fa-user" aria-hidden="true"></i>
-                    <span id="logout" class="padding_10">Logout</span></a>
+                    <span id="logout2" class="padding_10">Logout</span></a>
                 </li>
               </ul>
             </div>
@@ -111,7 +99,7 @@
               <div class="row">
                 <div class="col-sm-12">
                   <h1 class="banner_taital">Welcome to <br>Smarter Barter</h1>
-                  <div class="buynow_bt"><a href="#">Discover</a></div>
+                  <div class="buynow_bt"><a href="/index.html">Discover</a></div>
                 </div>
               </div>
             </div>
@@ -119,7 +107,7 @@
               <div class="row">
                 <div class="col-sm-12">
                   <h1 class="banner_taital">Get Started With <br>Your First Post</h1>
-                  <div class="buynow_bt"><a href="#">Post</a></div>
+                  <div class="buynow_bt"><a href="/itemPost.html">Post</a></div>
                 </div>
               </div>
             </div>
@@ -127,7 +115,7 @@
               <div class="row">
                 <div class="col-sm-12">
                   <h1 class="banner_taital">See What <br>Others Are Selling</h1>
-                  <div class="buynow_bt"><a href="#">Discover</a></div>
+                  <div class="buynow_bt"><a href="/index.html">Discover</a></div>
                 </div>
               </div>
             </div>
@@ -142,36 +130,114 @@
       </div>
     </div>
     <!-- banner section end -->
-  </div>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <div class="container">
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <div class="row">
       <form>
         <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
+          <label for="title" class="form-label">Title (required)</label>
           <input type="text" class="form-control" id="title">
         </div>
         <div class="mb-3">
-          <label for="body" class="form-label">Body</label>
-          <textarea class="form-control" name="body" id="body" cols="30" rows="10"></textarea>
+          <label for="title" class="form-label">Category (required)</label>
+          <div class="category-dropdown-menu">
+            <select id="category" name="status">
+              <option>Electronics & Media</option>
+              <option>Home & Garden</option>
+              <option>Clothing, Shoes, & Accessories</option>
+              <option>Baby & Kids</option>
+              <option>Vehicles</option>
+              <option>Toys, Games, & Hobbies</option>
+              <option>Sports & Outdoors</option>
+              <option>Collectibles & Art</option>
+              <option>Pet supplies</option>
+              <option>Health & Beauty</option>
+              <option>Wedding</option>
+              <option>Business equipment</option>
+              <option>Tickets</option>
+              <option>General</option>
+            </select>
+          </div>
         </div>
-        <button id="post" type="submit" class="btn btn-primary">Create Post</button>
-        <input type="file" accept="image/*" onchange="loadFile(event)">
-        <img id="output" />
+        <div class="mb-3">
+          <label for="title" class="form-label">Brand (optional)</label>
+          <input type="text" class="form-control" id="itemName">
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Condition (required)</label>
+          <div class="condition-dropdown-menu">
+            <select id="status" name="status">
+              <option>New</option>
+              <option>Reconditioned/Certified</option>
+              <option>Open box (never used)</option>
+              <option>Used (normal wear)</option>
+              <option>For parts</option>
+              <option>Other (see description)</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Image URL (required)</label>
+          <input type="text" class="form-control" id="imgLink">
+        </div>
+        <div class="mb-3">
+          <label for="body" class="form-label">Description (optional)</label>
+          <textarea class="form-control" name="body" id="description" cols="30" rows="5"></textarea>
+        </div>
+        <button id="post" type="submit" class="btn btn-dark">Create Post</button>
       </form>
     </div>
+  </div>
+  <br>
+  
+      <div id="posts" class="card-deck container"></div>
 
-    <div id="posts" class="row"></div>
-
+  <div class="footer_section layout_padding">
+    <div class="container">
+      <div class="location_main">Contributors: Alan | Harrison | Nathan | Oliver | Timmay</div>
+    </div>
+  </div>
+  <!-- footer section end -->
+  <!-- copyright section start -->
+  <div class="copyright_section">
+    <div class="container">
+      <p class="copyright_text">© 2022 SmarterBarter Inc.</p>
+    </div>
+  </div>
+  <!-- copyright section end -->
+  <!-- Javascript files-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery-3.0.0.min.js"></script>
+  <script src="js/plugin.js"></script>
+  <!-- sidebar -->
+  <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
 
       function createPost() {
         let newPost = {
           title: document.getElementById('title').value,
-          body: document.getElementById('body').value
+          item_name: document.getElementById('itemName').value,
+          body: document.getElementById('description').value,
+          photo: document.getElementById('imgLink').value,
+          condition: document.getElementById('status').value,
+          type: document.getElementById('category').value
         }
         axios.post('/api/items', newPost, {
           headers: {
@@ -186,36 +252,60 @@
       document.getElementById("post").addEventListener('click', event => {
         event.preventDefault()
         createPost()
-      })
-
-      axios.get('/api/items', {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      })
-        .then(res => {
-
-          console.log(res.data)
-          let posts = res.data
-          posts.forEach(post => {
-            let postElem = document.createElement('div')
-            postElem.innerHTML = `
-            <h3 class="goToPost" data-postid="${post.id}"> ${post.title} </h3>
-            <h5> posted by ${post.User.username} at ${post.User.createdAt.slice(0, -14)} </h5>
-            <p> ${post.body} </p>
-            `
-            document.getElementById('posts').prepend(postElem)
-          })
-
+        Swal.fire({
+          icon: 'success',
+          title: 'Your Item Has Been Posted',
+          showConfirmButton: false,
+          timer: 1000
         })
-
-      document.addEventListener('click', event => {
-        if (event.target.classList.contains('goToPost')) {
-          console.log('ping')
-          localStorage.setItem('postId', event.target.dataset.postid)
-          location = '/post.html'
-        }
+        setTimeout(location.reload.bind(location), 2000);
       })
+
+      function getUserPosts() {
+        axios.get('/api/users/profile', {
+              headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+              }
+            })
+              .then(res => {
+                
+                console.log(res.data)
+                let items = res.data.items
+                let userInfo = res.data
+                items.forEach(item => {
+                  let itemElem = document.createElement('div')
+                  itemElem.innerHTML = `
+            <br>
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="width: 20rem">
+              <img src="${item.photo}" class="card-img-top" alt="itemPicture">
+              <div class="card-body">
+                <h3 class="card-title data-postid="${item.id}"> ${item.title}</h3>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Posted by ${userInfo.username} at ${item.createdAt.slice(0, -14)}</li>
+                <li class="list-group-item">Item Name: ${item.item_name}</li>
+                <li class="list-group-item">Condition: ${item.condition}</li>
+                <li class="list-group-item">Description: ${item.body}</li>
+              </ul>
+              <div class="card-body">
+                <a href="/itemPage.html" class="btn btn-dark btn-lg goToPost" data-postid="${item.id}" tabindex="-1" role="button">More Detail</a>
+              </div>
+            </div>
+            <br>
+            `
+            document.getElementById('posts').prepend(itemElem)
+
+          })
+        })
+      }
+
+    document.addEventListener('click', event => {
+      if (event.target.classList.contains('goToPost')) {
+      console.log('ping')
+      localStorage.setItem('postId', event.target.dataset.postid)
+      location = '/itemPage.html'
+              }
+            })
 
         async function logoutUser() {
           localStorage.removeItem('username')
@@ -227,14 +317,12 @@
           event.preventDefault()
           logoutUser()
         })
+        document.getElementById("logout2").addEventListener('click', event => {
+            event.preventDefault()
+            logoutUser()
+          })
 
-  var loadFile = function (event) {
-    var output = document.getElementById('output');
-    output.src = URL.createObjectURL(event.target.files[0]);
-    output.onload = function () {
-      URL.revokeObjectURL(output.src) // free memory
-    }
-  };
+  getUserPosts()
 
     </script>
 </body>
