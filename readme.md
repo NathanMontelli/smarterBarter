@@ -21,18 +21,19 @@
     passport-jwt
     passport-local-sequelize
     sequelize
+    sweetalert2
 
   ## Usage
   Provided usage instructions and examples insure the desired development environment and outcome:
 
-    Create an account and by inputting an email, username and password or by using Facebook.
+    Create an account and by inputting an email, username and password.
 
     Sign in after creating account to access website home page.
 
     Post or comment on items and interact with other members on the website.
 
   ## Questions
-If you have any questions, you may contact using the information below
+If you have any questions, you may contact using the information below:
 
     GitHub: https://github.com/Harrison-Reich
     Github: https://github.com/LohasOT
@@ -44,4 +45,4 @@ If you have any questions, you may contact using the information below
     Email: oliver93@gmail.com
     Email: alntruong7@gmail.com
     Email: nathanmontelli@gmail.com
-    Email: 
+    Email: durantimothy21@gmail.com
