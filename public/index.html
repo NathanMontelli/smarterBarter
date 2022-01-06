@@ -17,15 +17,11 @@
   <!-- bootstrap css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <!-- style css -->
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/item-page.css">
   <!-- Responsive-->
   <link rel="stylesheet" href="css/responsive.css">
   <!-- fevicon -->
   <link rel="icon" href="images/fevicon.png" type="image/gif" />
-  <!-- Scrollbar Custom CSS -->
-  <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-  <!-- Tweaks for older IEs-->
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
   <!-- fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
   <!-- font awesome -->
@@ -55,9 +51,9 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="index.html">Home</a>
             <a href="itemPost.html">Post Your Item</a>
-            <a href="" id="logout" >Logout</a>
+            <a href="" id="logout">Logout</a>
             <!-- <a href="jewelery.html">Jewelry</a> -->
-          </div>  
+          </div>
           <span class="toggle_icon" onclick="openNav()"><img src="images/toggle-icon.png"></span>
           <div class="dropdown">
             SmarterBarter
@@ -83,7 +79,7 @@
                 </li>
                 <li><a href="#">
                     <i class="fa fa-user" aria-hidden="true"></i>
-                    <span id="logout" class="padding_10">Logout</span></a>
+                    <span id="logout2" class="padding_10">Logout</span></a>
                 </li>
               </ul>
             </div>
@@ -101,7 +97,7 @@
               <div class="row">
                 <div class="col-sm-12">
                   <h1 class="banner_taital">Welcome to <br>Smarter Barter</h1>
-                  <div class="buynow_bt"><a href="#">Discover</a></div>
+                  <div class="buynow_bt"><a href="/index.html">Discover</a></div>
                 </div>
               </div>
             </div>
@@ -117,7 +113,7 @@
               <div class="row">
                 <div class="col-sm-12">
                   <h1 class="banner_taital">See What <br>Others Are Selling</h1>
-                  <div class="buynow_bt"><a href="#">Discover</a></div>
+                  <div class="buynow_bt"><a href="/index.html">Discover</a></div>
                 </div>
               </div>
             </div>
@@ -131,8 +127,6 @@
         </div>
       </div>
     </div>
-    <!-- banner section end -->
-  </div>
 
   <div id="posts" class="card-deck container"></div>
 
@@ -180,6 +174,10 @@
         event.preventDefault()
         logoutUser()
       })
+    document.getElementById("logout2").addEventListener('click', event => {
+      event.preventDefault()
+      logoutUser()
+     }) 
 
       function getPosts() {
         axios.get('/api/items', {
@@ -195,7 +193,7 @@
               let itemElem = document.createElement('div')
               itemElem.innerHTML = `
               <br>
-            <div class="card" style="width: 20rem">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="width: 20rem">
               <img src="${item.photo}" class="card-img-top" alt="itemPicture">
               <div class="card-body">
                 <h3 class="card-title data-postid="${item.id}"> ${item.title}</h3>
