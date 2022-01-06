@@ -549,6 +549,11 @@ button {
   font-size: 20px;
   font-weight: bold;
 }
+
+#newComment {
+  resize: none;
+}
+
 /* item end */
 
 /* modal start */
