@@ -50,7 +50,7 @@ If you have any questions, you may contact using the information below:
     Github: https://github.com/timduran
 
     Email: hreich1998@gmail.com
-    Email: oliver93@gmail.com
+    Email: oliverhoang93@gmail.com
     Email: alntruong7@gmail.com
     Email: nathanmontelli@gmail.com
     Email: durantimothy21@gmail.com

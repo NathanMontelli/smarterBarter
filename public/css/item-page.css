@@ -554,6 +554,10 @@ button {
   resize: none;
 }
 
+#allComments {
+  background-color: wheat;
+}
+
 /* item end */
 
 /* modal start */

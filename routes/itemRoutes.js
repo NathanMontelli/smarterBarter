@@ -1,18 +1,19 @@
 const router = require('express').Router()
-const { Item, Category, Note, User } = require('../models')
+const { Item, Note, User } = require('../models')
 const passport = require('passport')
 const req = require('express/lib/request')
 const res = require('express/lib/response')
 
 // GET all posts
 router.get('/items', passport.authenticate('jwt'), async function (req, res) {
-  const items = await Item.findAll({ include: [User, Category, Note] })
+  const items = await Item.findAll({ include: [User, Note] })
   res.json(items)
 })
 
 
 //get one item
 router.get('/items/:id', passport.authenticate('jwt'), async function (req, res) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   const item = await Item.findOne({ where: { id: req.params.id } , include: [User, Category, Note] })
@@ -22,6 +23,9 @@ router.get('/items/:id', passport.authenticate('jwt'), async function (req, res)
 =======
   const item = await Item.findOne({ where: { id: req.params.id } , include: [User, Category, Note] })
 >>>>>>> 46e7d836e009a41a94dfa895a8a38a3114d14f62
+=======
+  const item = await Item.findOne({ where: { id: req.params.id } , include: [User, Note] })
+>>>>>>> 50af57c13b2f9263e94bd83a6882854e1bf6729a
   res.json(item)
 })
 
@@ -40,6 +44,7 @@ router.post('/items', passport.authenticate('jwt'), async function (req, res) {
   res.json()
 })
 
+<<<<<<< HEAD
 // DELETE one post
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -58,5 +63,7 @@ router.delete('/items/:id', passport.authenticate('jwt'), async function (req, r
 >>>>>>> 021ae8640aa7f003b637290c44c03c8a256c1a35
 =======
 >>>>>>> 46e7d836e009a41a94dfa895a8a38a3114d14f62
+=======
+>>>>>>> 50af57c13b2f9263e94bd83a6882854e1bf6729a
 
 module.exports = router
