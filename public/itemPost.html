@@ -46,6 +46,7 @@
 <body>
   <!-- banner bg main start -->
   <div class="banner_bg_main">
+    <!-- header top section start -->
     <!-- header section start -->
     <div class="header_section">
       <div class="container">
@@ -53,9 +54,9 @@
           <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="index.html">Home</a>
-            <a href="fashion.html">Fashion</a>
-            <a href="electronic.html">Electronic</a>
-            <a href="jewelery.html">Jewelry</a>
+            <a href="itemPost.html">Post Your Item</a>
+            <a href="" id="logout">Logout</a>
+            <!-- <a href="jewelery.html">Jewelry</a> -->
           </div>
           <span class="toggle_icon" onclick="openNav()"><img src="images/toggle-icon.png"></span>
           <div class="dropdown">
@@ -77,16 +78,12 @@
             <div class="login_menu">
               <ul>
                 <li><a href="/itemPost.html">
-                    <i class="fas fa-camera"></i>
-                    <span class="padding_10">Post</span></a>
-                </li>
-                <li><a href="#">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <span class="padding_10">Profile</span></a>
                 </li>
                 <li><a href="#">
                     <i class="fa fa-user" aria-hidden="true"></i>
-                    <span id="logout" class="padding_10">Logout</span></a>
+                    <span id="logout2" class="padding_10">Logout</span></a>
                 </li>
               </ul>
             </div>
@@ -104,7 +101,7 @@
               <div class="row">
                 <div class="col-sm-12">
                   <h1 class="banner_taital">Welcome to <br>Smarter Barter</h1>
-                  <div class="buynow_bt"><a href="#">Discover</a></div>
+                  <div class="buynow_bt"><a href="/index.html">Discover</a></div>
                 </div>
               </div>
             </div>
@@ -112,7 +109,7 @@
               <div class="row">
                 <div class="col-sm-12">
                   <h1 class="banner_taital">Get Started With <br>Your First Post</h1>
-                  <div class="buynow_bt"><a href="#">Post</a></div>
+                  <div class="buynow_bt"><a href="/itemPost.html">Post</a></div>
                 </div>
               </div>
             </div>
@@ -120,7 +117,7 @@
               <div class="row">
                 <div class="col-sm-12">
                   <h1 class="banner_taital">See What <br>Others Are Selling</h1>
-                  <div class="buynow_bt"><a href="#">Discover</a></div>
+                  <div class="buynow_bt"><a href="/index.html">Discover</a></div>
                 </div>
               </div>
             </div>
@@ -135,67 +132,92 @@
       </div>
     </div>
     <!-- banner section end -->
-  </div>
-
-  <!-- post section start -->
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <div class="container">
-  <div class="row">
-    <form>
-      <div class="mb-3">
-        <label for="title" class="form-label">Title (required)</label>
-        <input type="text" class="form-control" id="title">
-      </div>
-      <div class="mb-3">
-        <label for="title" class="form-label">Category (required)</label>
-        <div class="category-dropdown-menu">
-          <select id="status" name="status">
-            <option>Electronics & Media</option>
-            <option>Home & Garden</option>
-            <option>Clothing, Shoes, & Accessories</option>
-            <option>Baby & Kids</option>
-            <option>Vehicles</option>
-            <option>Toys, Games, & Hobbies</option>
-            <option>Sports & Outdoors</option>
-            <option>Collectibles & Art</option>
-            <option>Pet supplies</option>
-            <option>Health & Beauty</option>
-            <option>Wedding</option>
-            <option>Business equipment</option>
-            <option>Tickets</option>
-            <option>General</option>
-          </select>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="row">
+      <form>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title (required)</label>
+          <input type="text" class="form-control" id="title">
         </div>
-      </div>
-      <div class="mb-3">
-        <label for="title" class="form-label">Brand (optional)</label>
-        <input type="text" class="form-control" id="itemName">
-      </div>
-      <div class="mb-3">
-        <label for="title" class="form-label">Condition (required)</label>
-        <div class="condition-dropdown-menu">
-        <select id="status" name="status">
-          <option>New</option>
-          <option>Reconditioned/Certified</option>
-          <option>Open box (never used)</option>
-          <option>Used (normal wear)</option>
-          <option>For parts</option>
-          <option>Other (see description)</option>
-        </select>
+        <div class="mb-3">
+          <label for="title" class="form-label">Category (required)</label>
+          <div class="category-dropdown-menu">
+            <select id="category" name="status">
+              <option>Electronics & Media</option>
+              <option>Home & Garden</option>
+              <option>Clothing, Shoes, & Accessories</option>
+              <option>Baby & Kids</option>
+              <option>Vehicles</option>
+              <option>Toys, Games, & Hobbies</option>
+              <option>Sports & Outdoors</option>
+              <option>Collectibles & Art</option>
+              <option>Pet supplies</option>
+              <option>Health & Beauty</option>
+              <option>Wedding</option>
+              <option>Business equipment</option>
+              <option>Tickets</option>
+              <option>General</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="mb-3">
-        <label for="body" class="form-label">Description (optional)</label>
-        <textarea class="form-control" name="body" id="description" cols="30" rows="10"></textarea>
-      </div>
-      <button id="post" type="submit" class="btn btn-dark">Create Post</button>
-      <input type="file" accept="image/*" onchange="loadFile(event)">
-      <img id="output">
-    </form>
-
+        <div class="mb-3">
+          <label for="title" class="form-label">Brand (optional)</label>
+          <input type="text" class="form-control" id="itemName">
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Condition (required)</label>
+          <div class="condition-dropdown-menu">
+            <select id="status" name="status">
+              <option>New</option>
+              <option>Reconditioned/Certified</option>
+              <option>Open box (never used)</option>
+              <option>Used (normal wear)</option>
+              <option>For parts</option>
+              <option>Other (see description)</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Image URL (required)</label>
+          <input type="text" class="form-control" id="imgLink">
+        </div>
+        <div class="mb-3">
+          <label for="body" class="form-label">Description (optional)</label>
+          <textarea class="form-control" name="body" id="description" cols="30" rows="5"></textarea>
+        </div>
+        <button id="post" type="submit" class="btn btn-dark">Create Post</button>
+      </form>
+    </div>
   </div>
-  </div>
+  <br>
+  
+      <div id="posts" class="card-deck container"></div>
 
-  <div id="posts" class="row"></div>
+  <div class="footer_section layout_padding">
+    <div class="container">
+      <div class="location_main">Contributors: Alan | Harrison | Nathan | Oliver | Timmay</div>
+    </div>
+  </div>
+  <!-- footer section end -->
+  <!-- copyright section start -->
+  <div class="copyright_section">
+    <div class="container">
+      <p class="copyright_text">© 2022 SmarterBarter Inc.</p>
+    </div>
+  </div>
+  <!-- copyright section end -->
+  <!-- Javascript files-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery-3.0.0.min.js"></script>
+  <script src="js/plugin.js"></script>
+  <!-- sidebar -->
+  <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
   <!-- post section end -->
   <br>
@@ -214,56 +236,82 @@
   </div>
   <!-- copyright section end -->
 
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-
-  <script>
-
-    function createPost() {
-      let newPost = {
-        title: document.getElementById('title').value,
-        item_name: document.getElementById('itemName').value,
-        body: document.getElementById('description').value
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
       }
-      axios.post('/api/items', newPost, {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+
+      function createPost() {
+        let newPost = {
+          title: document.getElementById('title').value,
+          item_name: document.getElementById('itemName').value,
+          body: document.getElementById('description').value,
+          photo: document.getElementById('imgLink').value,
+          condition: document.getElementById('status').value,
+          type: document.getElementById('category').value
         }
-      })
-        .then(res => {
-          console.log(res)
+        axios.post('/api/items', newPost, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
         })
-    }
-
-    document.getElementById("post").addEventListener('click', event => {
-      event.preventDefault()
-      createPost()
-    })
-
-    axios.get('/api/items', {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
+          .then(res => {
+            console.log(res)
+          })
       }
-    })
-      .then(res => {
 
-        console.log(res.data)
-        let items = res.data
-        items.forEach(item => {
-          let itemElem = document.createElement('div')
-          itemElem.innerHTML = `
-            <h3 class="goToPost" data-postid="${item.id}"> ${item.title} </h3>
-            <h3> ${item.item_name} </h3>
-            <h5> posted by ${item.User.username} at ${item.User.createdAt.slice(0, -14)} </h5>
-            <p> ${item.body} </p>
-            `
-          document.getElementById('posts').prepend(itemElem)
-        })
-
+      document.getElementById("post").addEventListener('click', event => {
+        createPost()
       })
+
+      function getUserPosts() {
+        axios.get('/api/users/profile', {
+              headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+              }
+            })
+              .then(res => {
+                
+                console.log(res.data)
+                let items = res.data.items
+                let userInfo = res.data
+                items.forEach(item => {
+                  let itemElem = document.createElement('div')
+                  itemElem.innerHTML = `
+            <br>
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="width: 20rem">
+              <img src="${item.photo}" class="card-img-top" alt="itemPicture">
+              <div class="card-body">
+                <h3 class="card-title data-postid="${item.id}"> ${item.title}</h3>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Posted by ${userInfo.username} at ${item.createdAt.slice(0, -14)}</li>
+                <li class="list-group-item">Item Name: ${item.item_name}</li>
+                <li class="list-group-item">Condition: ${item.condition}</li>
+                <li class="list-group-item">Description: ${item.body}</li>
+              </ul>
+              <div class="card-body">
+                <a href="/itemPage.html" class="btn btn-dark btn-lg goToPost" data-postid="${item.id}" tabindex="-1" role="button">More Detail</a>
+              </div>
+            </div>
+            <br>
+            `
+            document.getElementById('posts').prepend(itemElem)
+          })
+        })
+      }
+
+    document.addEventListener('click', event => {
+      if (event.target.classList.contains('goToPost')) {
+      console.log('ping')
+      localStorage.setItem('postId', event.target.dataset.postid)
+      location = '/itemPage.html'
+              }
+            })
 
     document.addEventListener('click', event => {
       if (event.target.classList.contains('goToPost')) {
@@ -273,40 +321,16 @@
       }
     })
 
-    async function logoutUser() {
-      localStorage.removeItem('username')
-      localStorage.removeItem('token')
-      location = '/login.html'
-    }
+        document.getElementById("logout").addEventListener('click', event => {
+          event.preventDefault()
+          logoutUser()
+        })
+        document.getElementById("logout2").addEventListener('click', event => {
+            event.preventDefault()
+            logoutUser()
+          })
 
-    document.getElementById("logout").addEventListener('click', event => {
-      event.preventDefault()
-      logoutUser()
-    })
-
-    var loadFile = function (event) {
-      var output = document.getElementById('output');
-      output.src = URL.createObjectURL(event.target.files[0]);
-      output.onload = function () {
-        URL.revokeObjectURL(output.src) // free memory
-      }
-    };
-
-  </script>
-
-  <!-- Javascript files-->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/jquery-3.0.0.min.js"></script>
-  <script src="js/plugin.js"></script>
-  <!-- sidebar -->
-  <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-  <script src="js/custom.js"></script>
-  <script>
-    function openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
-    }
+  getUserPosts()
 
     function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
