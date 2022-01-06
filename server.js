@@ -34,6 +34,7 @@ passport.use(new JWTStrategy({
   }
 }))
 
+
 app.use(require('./routes'))
 
 async function init() {
