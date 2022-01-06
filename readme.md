@@ -45,4 +45,4 @@ If you have any questions, you may contact using the information below:
     Email: oliver93@gmail.com
     Email: alntruong7@gmail.com
     Email: nathanmontelli@gmail.com
-    Email: 
+    Email: durantimothy21@gmail.com
