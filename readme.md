@@ -26,7 +26,7 @@
   ## Usage
   Provided usage instructions and examples insure the desired development environment and outcome:
 
-    Create an account and by inputting an email, username and password or by using Facebook.
+    Create an account and by inputting an email, username and password.
 
     Sign in after creating account to access website home page.
 
