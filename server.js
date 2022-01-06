@@ -4,7 +4,7 @@ const express = require('express')
 const { join } = require('path')
 
 const passport = require('passport')
-const { User, Note, Item, Category } = require('./models')
+const { User, Note, Item } = require('./models')
 const { Strategy: JWTStrategy, ExtractJwt } = require('passport-jwt')
 
 const app = express()

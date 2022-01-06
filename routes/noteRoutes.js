@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Item, Category, Note, User } = require('../models')
+const { Item, Note, User } = require('../models')
 const passport = require('passport')
 
 // GET all comments
