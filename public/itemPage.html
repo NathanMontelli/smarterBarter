@@ -153,43 +153,24 @@
   
   Special feature: Liquid Cooling; Tempered glass side case panel; Custom ARGB case lighting</div>
 
+  <hr>
   <br>
+  <div class="description-title">Comments</div>
+  <hr>
+  <div id="notes" class="row"></div>
 
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-dark btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">
-   Make Offer
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-   aria-hidden="true">
-   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-     <div class="modal-header">
-      <h2 class="modal-title" id="exampleModalLabel">Enter Your Offer</h2>
-     </div>
-     <div class="modal-body">
-      <input type="text">
-     </div>
-     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
-      <button type="button" class="btn btn-dark">Make Offer</button>
-     </div>
-    </div>
-   </div>
+  <div class="mb-3">
+  <label for="body" class="form-label">Comments</label>
+  <textarea class="form-control" name="body" id="commentBox" cols="30" rows="5"></textarea>
   </div>
+  <button id="submitComment" type="button" class="btn btn-dark btn-lg btn-block" data-target="#exampleModal">
+  Submit Comment
+  </button>
   <br>
-
-  <!-- Save button -->
-  <button type="button" class="btn btn-outline-dark btn-lg btn-block">Save</button>
 
   <br><br>
 
  </div>
-
- <!-- item display end-->
-
-
 
  <!-- footer section start -->
  <div class="footer_section layout_padding">
@@ -214,7 +195,7 @@
  <!-- sidebar -->
  <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
  <script src="js/custom.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
  <script>
   function openNav() {
    document.getElementById("mySidenav").style.width = "250px";
@@ -235,7 +216,7 @@
             }
           })
             .then(res => {
-              console.log(res.data)
+              // console.log(res.data)
               let item = res.data
 
           document.getElementById("title").innerHTML = `${item.title} `
@@ -245,6 +226,51 @@
           document.getElementById("imgLink").innerHTML = `<img src="${item.photo}" class="card-img-top" alt="itemPicture">`
           document.getElementById("user").innerHTML = `Posted by ${item.User.username} at ${item.User.createdAt.slice(0, -14)} `
           })
+
+
+            function createComment() {
+              let newComment = {
+                body: document.getElementById('commentBox').value
+              }
+              axios.post('/api/notes', newComment, {
+                headers: {
+                  'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+              })
+                .then(res => {
+                  console.log(res)
+                })
+            }
+
+            document.getElementById("submitComment").addEventListener('click', event => {
+              createComment()
+            })
+
+      function getAllNotes() {
+        axios.get('/api/notes', {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        })
+          .then(res => {
+            console.log(res.data)
+            let notes = res.data
+            notes.forEach(note => {
+              let noteElem = document.createElement('div')
+              noteElem.innerHTML = `
+
+              <h5>${note.User.username} Commented At ${note.createdAt.slice(0, -14)} </h5>
+              <p>${note.body}</p>
+
+              <hr>
+              `
+              document.getElementById('notes').append(noteElem)
+            })
+          })
+        }
+
+      getAllNotes()
+
 
 
       async function logoutUser() {
