@@ -4,8 +4,7 @@ const express = require('express')
 const { join } = require('path')
 
 const passport = require('passport')
-const { User, Item, Category, Note } = require('./models') 
-//prevents being signed out on page load
+const { User, Note, Item, Category } = require('./models')
 const { Strategy: JWTStrategy, ExtractJwt } = require('passport-jwt')
 
 const app = express()
@@ -27,13 +26,12 @@ passport.use(new JWTStrategy({
   secretOrKey: process.env.SECRET
 }, async function ({ id }, cb) {
   try {
-    const user = await User.findOne({ where: { id }, include: [Item, Note] }) // add note??
+    const user = await User.findOne({ where: { id }, include: [Item, Note] })
     cb(null, user)
   } catch (err) {
     cb(err, null)
   }
 }))
-
 
 app.use(require('./routes'))
 
